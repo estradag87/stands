@@ -40,8 +40,8 @@ class Area extends React.Component {
     this.changeColor = this.changeColor.bind(this);
   }
 
-  changeColor() {
-    this.setState({ id: id });
+  changeColor(myId) {
+    this.setState({ id: myId });
   }
 
   render() {
@@ -53,8 +53,14 @@ class Area extends React.Component {
             {list.map((item) => (
               <Col lg={4} md={3} sm={12} xs={12}>
                 <li
-                  onClick={this.changeColor}
-                  className="portafolio"
+                  onClick={() => this.changeColor(item.id)}
+                  className={`portafolio ${
+                    item.id === this.state.id
+                      ? "active"
+                      : this.state.id
+                      ? "inactive"
+                      : ""
+                  }`}
                   key={item.id}
                 >
                   <img className="image" src={item.image} />

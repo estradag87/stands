@@ -2,6 +2,39 @@ import React from "react";
 import "./Home.scss";
 
 class home extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { displayImage: false };
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll = () => {
+    console.log("---------");
+    this.setState({
+      displayImage: true,
+    });
+  };
+
+  // handleScroll(e) {
+  //   console.log("¿¿¿¿¿¿");
+  //   let element = e.target;
+  //   if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+  //     console.log("¿¿¿¿¿¿");
+
+  //     // this.setState({
+  //     //   handleScroll: true,
+  //     // });
+  //   }
+  // }
+
   render() {
     return (
       <div>
@@ -27,12 +60,33 @@ class home extends React.Component {
             <br></br> <span>DE STANDS PARA FERIAS EN MEDELLÍN</span>
           </h1>
         </div>
-        <div>
-          <img
-            className="imagenHome"
-            src="https://scontent.feoh1-1.fna.fbcdn.net/v/t31.0-8/16463319_1575613852467248_5144333456642728183_o.jpg?_nc_cat=104&_nc_sid=730e14&_nc_eui2=AeGpmjkVrPYyjDPIJUtD2LxGC6B0aVz7fY4LoHRpXPt9jkJcPFCkOJ-bMhmIsfM441g&_nc_ohc=Qrw6bqZ6Mv0AX-FT2lK&_nc_ht=scontent.feoh1-1.fna&oh=c2bdfadf94a61a8779492c7f8a0795f5&oe=5EE5BDE2"
-            alt="imagen home"
-          />
+        <div className="banner">
+          <div className="standAlone">
+            <img
+              className="imageStandAlone"
+              src="/stand-con-vendedoras.png"
+              alt="Stand Alone"
+            />
+            <h2 className="textFirst">
+              DEJANOS A NOSOTROS <br></br>HACER TU STAND...
+            </h2>
+          </div>
+          <div
+            className={`standFull ${
+              this.state.displayImage === true
+                ? "animate__animated animate__bounceInDown"
+                : ""
+            }`}
+          >
+            <img
+              className="imageStandFull"
+              src="/clientes.png"
+              alt="Stand Full"
+            />
+            <h2 className="textSecond">
+              Y TE LLOVERAN <br></br>LOS CLIENTES!!!
+            </h2>
+          </div>
         </div>
         <div className="BuiltYourOwnStand">
           <h2>CREA TU PROPIO STAND</h2>
