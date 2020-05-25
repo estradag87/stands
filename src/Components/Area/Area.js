@@ -2,62 +2,21 @@ import React from "react";
 import "./Area.scss";
 import { Row, Col, Button } from "react-bootstrap";
 
-const list = [
-  {
-    id: 5,
-    image:
-      "https://static.wixstatic.com/media/c19c76_22d8ec47d1484b09a9c333e4141a12a0.jpg/v1/fill/w_300,h_226,al_c,q_80,usm_0.66_1.00_0.01/c19c76_22d8ec47d1484b09a9c333e4141a12a0.webp",
-    size: 5,
-    Includes1: "- Pisos",
-    Includes2: "- Branding de la paneleria",
-    Price: "$1.000 USD",
-  },
-  {
-    id: 10,
-    image:
-      "https://static.wixstatic.com/media/c19c76_8c7f5eed08b047bdaaf2833985c4b3d7.jpg/v1/fill/w_300,h_226,al_c,q_80,usm_0.66_1.00_0.01/c19c76_8c7f5eed08b047bdaaf2833985c4b3d7.webp",
-    size: 10,
-    Includes1: "- Pisos",
-    Includes2: "- Branding de la paneleria",
-    Price: "$1.500 USD",
-  },
-  {
-    id: 15,
-    image:
-      "https://static.wixstatic.com/media/c19c76_e1a7148276024a03a7b0772c5a8fb9e7.jpg/v1/fill/w_300,h_226,al_c,q_80,usm_0.66_1.00_0.01/c19c76_e1a7148276024a03a7b0772c5a8fb9e7.webp",
-    size: 15,
-    Includes1: "- Pisos",
-    Includes2: "- Branding de la paneleria",
-    Price: "$2.000 USD",
-  },
-];
-
 class Area extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { id: "" };
-
-    this.changeColor = this.changeColor.bind(this);
-  }
-
-  changeColor(myId) {
-    this.setState({ id: myId });
-  }
-
   render() {
     return (
       <div>
         <h3 className="areaSelection">SELECCIONA EL AREA DE TU STAND</h3>
         <ul className="displayArea">
           <Row className="justify-content-lg-center">
-            {list.map((item) => (
+            {this.props.areaList.map((item) => (
               <Col lg={4} md={3} sm={12} xs={12}>
                 <li
-                  onClick={() => this.changeColor(item.id)}
+                  onClick={() => this.props.changeColor(item.id)}
                   className={`portafolio ${
-                    item.id === this.state.id
+                    item.id === this.props.id
                       ? "active"
-                      : this.state.id
+                      : this.props.id
                       ? "inactive"
                       : ""
                   }`}

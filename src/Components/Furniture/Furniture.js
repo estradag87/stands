@@ -105,12 +105,10 @@ class Furniture extends React.Component {
     this.changeQuantity = this.changeQuantity.bind(this);
   }
   changeQuantity(e, itemId) {
-    console.log(e);
     this.setState({ [itemId]: e.target.value });
   }
 
   render() {
-    console.log("{{{{{", this.props);
     return (
       <div clasName="section4">
         <div className="showFurnitureList">
@@ -118,7 +116,7 @@ class Furniture extends React.Component {
           <ul>
             <Row className="justify-content-lg-center">
               {Furnitures.filter(
-                (Furniture) => Furniture.category === this.props.categoryChoosen
+                (furniture) => furniture.category === this.props.categoryChoosen
               ).map((item) => (
                 <Col lg={3} md={3} sm={12} xs={12}>
                   <li className="showFurniture" key={item.id}>
