@@ -76,7 +76,7 @@ class Form extends React.Component {
     return (
       <div className="section2">
         <div>
-          <h3>COMIENZA DANDONOS TUS DATOS</h3>
+          <h3 className="startInfo">COMIENZA DANDONOS TUS DATOS</h3>
           <form onSubmit={this.handleSubmit} noValidate>
             <Row className="justify-content-lg-center">
               <Col lg={3} md={5} sm={12} xs={12}>
@@ -156,9 +156,7 @@ class Form extends React.Component {
                 </div>
               </Col>
             </Row>
-            <div className="submit">
-              <Button>Create</Button>
-            </div>
+            <div className="submit">{<Button>Create</Button>}</div>
           </form>
         </div>
       </div>

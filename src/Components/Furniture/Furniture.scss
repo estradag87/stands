@@ -1,0 +1,47 @@
+.showFurnitureList {
+  border-radius: 5px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);
+  background-color: rgb(255, 255, 255);
+  margin: 15px 50px 30px 50px;
+  padding: 10px 100px;
+  line-height: 30px;
+
+  .image {
+    width: auto;
+    background-color: white;
+    // border-radius: 0;
+    // box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0);
+  }
+
+  .showFurniture {
+    width: auto;
+  }
+
+  .categorydisplay {
+    font-size: 60px;
+    color: #c6c6c6;
+    font-weight: 700;
+    line-height: 55px;
+  }
+
+  .showImage {
+    height: 130px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+
+  .name {
+    font-weight: 700;
+  }
+
+  .selection {
+    min-width: 80px;
+    width: 80px;
+    min-height: 60px;
+    font-weight: 300;
+
+    margin-left: 70px;
+  }
+}

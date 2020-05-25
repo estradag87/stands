@@ -9,6 +9,7 @@ import Form from "../Form/Form";
 import Products from "../Products/Products";
 import Categories from "../Categories/Categories";
 import Furniture from "../Furniture/Furniture";
+import Resume from "../Resume/Resume";
 
 class App extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class App extends React.Component {
           <Products />
           <Categories />
           <Furniture />
+          <Resume />
         </div>
       </div>
     );

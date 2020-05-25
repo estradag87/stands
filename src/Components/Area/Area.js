@@ -7,7 +7,7 @@ const list = [
     id: 5,
     image:
       "https://static.wixstatic.com/media/c19c76_22d8ec47d1484b09a9c333e4141a12a0.jpg/v1/fill/w_300,h_226,al_c,q_80,usm_0.66_1.00_0.01/c19c76_22d8ec47d1484b09a9c333e4141a12a0.webp",
-    size: "5 metros",
+    size: 5,
     Includes1: "- Pisos",
     Includes2: "- Branding de la paneleria",
     Price: "$1.000 USD",
@@ -16,7 +16,7 @@ const list = [
     id: 10,
     image:
       "https://static.wixstatic.com/media/c19c76_8c7f5eed08b047bdaaf2833985c4b3d7.jpg/v1/fill/w_300,h_226,al_c,q_80,usm_0.66_1.00_0.01/c19c76_8c7f5eed08b047bdaaf2833985c4b3d7.webp",
-    size: "10 metros",
+    size: 10,
     Includes1: "- Pisos",
     Includes2: "- Branding de la paneleria",
     Price: "$1.500 USD",
@@ -25,7 +25,7 @@ const list = [
     id: 15,
     image:
       "https://static.wixstatic.com/media/c19c76_e1a7148276024a03a7b0772c5a8fb9e7.jpg/v1/fill/w_300,h_226,al_c,q_80,usm_0.66_1.00_0.01/c19c76_e1a7148276024a03a7b0772c5a8fb9e7.webp",
-    size: "15 metros",
+    size: 15,
     Includes1: "- Pisos",
     Includes2: "- Branding de la paneleria",
     Price: "$2.000 USD",
@@ -47,8 +47,8 @@ class Area extends React.Component {
   render() {
     return (
       <div>
-        <h3>SELECCIONA EL AREA DE TU STAND</h3>
-        <ul>
+        <h3 className="areaSelection">SELECCIONA EL AREA DE TU STAND</h3>
+        <ul className="displayArea">
           <Row className="justify-content-lg-center">
             {list.map((item) => (
               <Col lg={4} md={3} sm={12} xs={12}>
@@ -64,11 +64,12 @@ class Area extends React.Component {
                   key={item.id}
                 >
                   <img className="image" src={item.image} />
-                  <div className="size">{item.size}</div>
+                  <div className="sizeNumber">{item.size}</div>
+                  <div className="size">metros</div>
                   <div className="includes">Incluye:</div>
                   <div className="includes1">{item.Includes1}</div>
                   <div className="includes2">{item.Includes2}</div>
-                  <div className="price">Precio desde</div>
+                  <div className="priceText">Precio desde</div>
                   <div className="price">{item.Price}</div>
                 </li>
               </Col>

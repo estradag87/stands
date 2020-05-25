@@ -2,24 +2,31 @@ div {
   text-align: center;
 }
 
-h3 {
-  font-size: 35px;
+.areaSelection {
+  font-size: 40px;
+  font-weight: 600;
   color: #333;
-  padding: 20px;
+  padding-top: 30px;
+}
+
+.displayArea {
+  margin: 0 120px;
 }
 
 .portafolio {
   border-radius: 5px;
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.7);
   background-color: rgb(255, 255, 255);
-  margin: 15px 50px 30px 50px;
-  padding: 10px;
+  margin: 15px 5px 30px 5px;
+  padding-bottom: 15px;
 }
 
 .size {
   font-size: 30px;
   font-weight: 700;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  color: #cac8c8;
 }
 
 .includes {
@@ -28,7 +35,7 @@ h3 {
 }
 
 .includes2 {
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .price {
@@ -47,4 +54,20 @@ h3 {
 }
 li {
   cursor: pointer;
+}
+
+.priceText {
+  color: rgba(237, 205, 31, 1);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.sizeNumber {
+  font-weight: 700;
+  font-size: 100px;
+  color: #dbdbdb;
+  line-height: 40px;
+  padding-top: 35px;
+  text-shadow: 2px 2px 2px rgb(66, 66, 66);
 }
