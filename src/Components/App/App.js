@@ -12,6 +12,11 @@ import Furniture from "../Furniture/Furniture";
 import Resume from "../Resume/Resume";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
       <div>
