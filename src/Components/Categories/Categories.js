@@ -26,13 +26,14 @@ class Categories extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { name: "" };
+    this.state = { name: [] };
 
     this.changeCategory = this.changeCategory.bind(this);
   }
 
   changeCategory(myName) {
-    this.setState({ name: myName });
+    const categoriesList = this.state.name;
+    this.setState({ name: categoriesList.push(myName) });
   }
 
   render() {
