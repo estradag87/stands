@@ -116,7 +116,9 @@ class Furniture extends React.Component {
           <ul>
             <Row className="justify-content-lg-center">
               {Furnitures.filter(
-                (furniture) => furniture.category === this.props.categoryChoosen
+                (furniture) =>
+                  this.props.selectedCategories &&
+                  this.props.selectedCategories.includes(furniture.category)
               ).map((item) => (
                 <Col lg={3} md={3} sm={12} xs={12}>
                   <li className="showFurniture" key={item.id}>

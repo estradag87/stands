@@ -26,14 +26,24 @@ class Categories extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { name: [] };
+    this.state = { selectedCategories: [] };
 
     this.changeCategory = this.changeCategory.bind(this);
   }
 
-  changeCategory(myName) {
-    const categoriesList = this.state.name;
-    this.setState({ name: categoriesList.push(myName) });
+  changeCategory(categoryName) {
+    // Check if selected categories includes new one, if exist, early return
+    if (this.state.selectedCategories.includes(categoryName)) {
+      return;
+    }
+
+    // [a, b, c] -> d
+    // Sin ... -> [[a, b, c], d]
+    // Con ... -> [a, b, c, d]
+    // Destructuring ES6 -> Investigar
+    const categoriesList = [...this.state.selectedCategories, categoryName];
+
+    this.setState({ selectedCategories: categoriesList });
   }
 
   render() {
@@ -62,7 +72,7 @@ class Categories extends React.Component {
             </Row>
           </ul>
         </div>
-        <Furniture categoryChoosen={this.state.name} />
+        <Furniture selectedCategories={this.state.selectedCategories} />
       </div>
     );
   }
