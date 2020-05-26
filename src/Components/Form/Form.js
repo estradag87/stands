@@ -1,15 +1,62 @@
 import React from "react";
 import "./Form.scss";
 import { Row, Col, Button } from "react-bootstrap";
+import { validEmailRegex, validateForm } from "../../utils";
 
 class Form extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    event.preventDefault();
+    const { name, value } = event.target;
+    let errors = this.props.errors;
+
+    switch (name) {
+      case "nombreDeLaEmpresa":
+        errors.nombreDeLaEmpresa =
+          value.length < 1 ? "Debes darnos el nombre de tu empresa!" : "";
+        break;
+      case "nombreDeContacto":
+        errors.nombreDeContacto =
+          value.length < 1 ? "Debes darnos tu nombre!" : "";
+        break;
+      case "email":
+        errors.email = validEmailRegex.test(value) ? "" : "Email is not valid!";
+        break;
+      case "pais":
+        errors.pais =
+          value.length < 1
+            ? "Debes darnos el nombre del país desde donde nos contactas!"
+            : "";
+        break;
+      default:
+        break;
+    }
+
+    this.props.handleChange(errors, name, value);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    if (validateForm(this.props.errors)) {
+      console.info("Valid Form");
+    } else {
+      console.error("Invalid Form");
+    }
+  }
+
   render() {
     const { errors } = this.props;
     return (
       <div className="section2">
         <div>
           <h3 className="startInfo">COMIENZA DANDONOS TUS DATOS</h3>
-          <form onSubmit={this.props.handleSubmit} noValidate>
+          <form onSubmit={this.handleSubmit} noValidate>
             <Row className="justify-content-lg-center">
               <Col lg={3} md={5} sm={12} xs={12}>
                 <div className="nombreDeLaEmpresa">
@@ -20,13 +67,17 @@ class Form extends React.Component {
                   <input
                     type="text"
                     name="nombreDeLaEmpresa"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                     noValidate
                   />
                   <h4 className="erros">
-                    {errors.nombreDeLaEmpresa.length > 0 && (
-                      <span className="error">{errors.nombreDeLaEmpresa}</span>
-                    )}
+                    {errors &&
+                      errors.nombreDeLaEmpresa &&
+                      errors.nombreDeLaEmpresa.length > 0 && (
+                        <span className="error">
+                          {errors.nombreDeLaEmpresa}
+                        </span>
+                      )}
                   </h4>
                   <br></br>
                 </div>
@@ -38,13 +89,15 @@ class Form extends React.Component {
                   <input
                     type="text"
                     name="nombreDeContacto"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                     noValidate
                   />
                   <h4 className="erros">
-                    {errors.nombreDeContacto.length > 0 && (
-                      <span className="error">{errors.nombreDeContacto}</span>
-                    )}
+                    {errors &&
+                      errors.nombreDeContacto &&
+                      errors.nombreDeContacto.length > 0 && (
+                        <span className="error">{errors.nombreDeContacto}</span>
+                      )}
                   </h4>
                   <br></br>
                 </div>
@@ -58,11 +111,11 @@ class Form extends React.Component {
                   <input
                     type="email"
                     name="email"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                     noValidate
                   />
                   <h4 className="erros">
-                    {errors.email.length > 0 && (
+                    {errors && errors.email && errors.email.length > 0 && (
                       <span className="error">{errors.email}</span>
                     )}
                   </h4>
@@ -76,11 +129,11 @@ class Form extends React.Component {
                   <input
                     type="text"
                     name="pais"
-                    onChange={this.props.handleChange}
+                    onChange={this.handleChange}
                     noValidate
                   />
                   <h4 className="erros">
-                    {errors.pais.length > 0 && (
+                    {errors && errors.pais && errors.pais.length > 0 && (
                       <span className="error">{errors.pais}</span>
                     )}
                   </h4>

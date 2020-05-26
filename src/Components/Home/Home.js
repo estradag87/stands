@@ -17,23 +17,10 @@ class home extends React.Component {
   }
 
   handleScroll = () => {
-    console.log("---------");
     this.setState({
       displayImage: true,
     });
   };
-
-  // handleScroll(e) {
-  //   console.log("¿¿¿¿¿¿");
-  //   let element = e.target;
-  //   if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-  //     console.log("¿¿¿¿¿¿");
-
-  //     // this.setState({
-  //     //   handleScroll: true,
-  //     // });
-  //   }
-  // }
 
   render() {
     return (

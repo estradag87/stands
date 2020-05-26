@@ -1,26 +1,8 @@
 import React from "react";
 import "./Categories.scss";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import Furniture from "../Furniture/Furniture";
-
-const categoryList = [
-  {
-    name: "Mesas",
-    image: "/FotosCategorias/mesa.jpg",
-  },
-  {
-    name: "Sillas",
-    image: "/FotosCategorias/silla.jpg",
-  },
-  {
-    name: "Exhibidores",
-    image: "/FotosCategorias/racks.jpg",
-  },
-  {
-    name: "Decoración",
-    image: "/FotosCategorias/matas.jpg",
-  },
-];
+import { CATEGORY_LIST } from "../../constants";
 
 class Categories extends React.Component {
   constructor(props) {
@@ -57,7 +39,7 @@ class Categories extends React.Component {
           <h4 className="choose">Escoge que poductos deseas agregar</h4>
           <ul>
             <Row className="justify-content-lg-center">
-              {categoryList.map((item) => (
+              {CATEGORY_LIST.map((item) => (
                 <Col lg={3} md={3} sm={12} xs={12}>
                   <li
                     onClick={() => this.changeCategory(item.name)}

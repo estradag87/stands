@@ -1,32 +1,7 @@
 import React from "react";
 import "./Products.scss";
-import { Row, Col, Form } from "react-bootstrap";
-
-const list = [
-  {
-    id: "3paredes",
-    image: "/AreaStands/3paredes.jpg",
-    name: "3 paredes",
-  },
-  {
-    id: "2paredes",
-    image: "/AreaStands/2paredes.jpg",
-    name: "2 paredes",
-  },
-];
-
-const options = [
-  {
-    id: "pisoClaro",
-    image: "/FotosPisos/claro.jpg",
-    name: "CLARO",
-  },
-  {
-    id: "pisoOscuro",
-    image: "/FotosPisos/oscuro.jpg",
-    name: "OSCURO",
-  },
-];
+import { Row, Col } from "react-bootstrap";
+import { PRODUCTS_LISTS, FLOOR_OPTIONS } from "../../constants";
 
 class Products extends React.Component {
   constructor(props) {
@@ -52,7 +27,7 @@ class Products extends React.Component {
           <h3 className="standTipe">CUENTANOS CÓMO ES TU STAND</h3>
           <ul>
             <Row className="justify-content-lg-center">
-              {list.map((item) => (
+              {PRODUCTS_LISTS.map((item) => (
                 <Col lg={6} md={3} sm={12} xs={12}>
                   <li
                     onClick={() => this.changeColor(item.id)}
@@ -77,7 +52,7 @@ class Products extends React.Component {
           <h3 className="standTipe">ESCOGE EL PISO</h3>
           <ul>
             <Row className="justify-content-lg-center">
-              {options.map((item) => (
+              {FLOOR_OPTIONS.map((item) => (
                 <Col lg={4} md={3} sm={12} xs={12}>
                   <li
                     onClick={() => this.changeFloor(item.name)}

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Area.scss";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
+import { AREA_LIST } from "../../constants";
 
 class Area extends React.Component {
   render() {
@@ -9,7 +10,7 @@ class Area extends React.Component {
         <h3 className="areaSelection">SELECCIONA EL AREA DE TU STAND</h3>
         <ul className="displayArea">
           <Row className="justify-content-lg-center">
-            {this.props.areaList.map((item) => (
+            {AREA_LIST.map((item) => (
               <Col lg={4} md={3} sm={12} xs={12}>
                 <li
                   onClick={() => this.props.changeColor(item.id)}
