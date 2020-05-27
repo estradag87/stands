@@ -1,25 +1,9 @@
 import React from "react";
 import "./Products.scss";
 import { Row, Col } from "react-bootstrap";
-import { PRODUCTS_LISTS, FLOOR_OPTIONS } from "../../constants";
+import { WALL_LISTS, FLOOR_OPTIONS } from "../../constants";
 
 class Products extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { id: "", name: "" };
-
-    this.changeColor = this.changeColor.bind(this);
-    this.changeFloor = this.changeFloor.bind(this);
-  }
-
-  changeColor(myId) {
-    this.setState({ id: myId });
-  }
-
-  changeFloor(myName) {
-    this.setState({ name: myName });
-  }
-
   render() {
     return (
       <div className="section3">
@@ -27,14 +11,14 @@ class Products extends React.Component {
           <h3 className="standTipe">CUENTANOS CÓMO ES TU STAND</h3>
           <ul>
             <Row className="justify-content-lg-center">
-              {PRODUCTS_LISTS.map((item) => (
+              {WALL_LISTS.map((item) => (
                 <Col lg={6} md={3} sm={12} xs={12}>
                   <li
-                    onClick={() => this.changeColor(item.id)}
+                    onClick={() => this.props.changeWalls(item.id)}
                     className={`desing ${
-                      item.id === this.state.id
+                      item.id === this.props.wallId
                         ? "space"
-                        : this.state.id
+                        : this.props.wallId
                         ? "noSpace"
                         : ""
                     }`}
@@ -55,11 +39,11 @@ class Products extends React.Component {
               {FLOOR_OPTIONS.map((item) => (
                 <Col lg={4} md={3} sm={12} xs={12}>
                   <li
-                    onClick={() => this.changeFloor(item.name)}
+                    onClick={() => this.props.changeFloor(item.id)}
                     className={`desing ${
-                      item.name === this.state.name
+                      item.id === this.props.floorId
                         ? "floorTipe"
-                        : this.state.name
+                        : this.props.floorId
                         ? "noFloorTipe"
                         : ""
                     }`}

@@ -55,7 +55,6 @@ export const FURNITURES = [
     name: "Escritorio Madera",
     price: 100,
     category: "Mesas",
-    quantity: 1,
   },
   {
     id: "mesa2",
@@ -64,7 +63,6 @@ export const FURNITURES = [
     name: "Escritorio Blanco",
     price: 120,
     category: "Mesas",
-    quantity: 1,
   },
   {
     id: "mesa3",
@@ -73,7 +71,6 @@ export const FURNITURES = [
     name: "Mesa Redonda",
     price: 80,
     category: "Mesas",
-    quantity: 1,
   },
   {
     id: "silla1",
@@ -82,7 +79,6 @@ export const FURNITURES = [
     name: "Silla Blanca",
     price: 20,
     category: "Sillas",
-    quantity: 1,
   },
   {
     id: "silla2",
@@ -91,7 +87,6 @@ export const FURNITURES = [
     name: "Butaco Bajito",
     price: 15,
     category: "Sillas",
-    quantity: 1,
   },
   {
     id: "silla3",
@@ -100,7 +95,6 @@ export const FURNITURES = [
     name: "Taurete Blanco",
     price: 25,
     category: "Sillas",
-    quantity: 1,
   },
   {
     id: "exhibidor1",
@@ -109,7 +103,6 @@ export const FURNITURES = [
     name: "Cajonera",
     price: 20,
     category: "Exhibidores",
-    quantity: 1,
   },
   {
     id: "exhibidor2",
@@ -118,7 +111,6 @@ export const FURNITURES = [
     name: "Rack",
     price: 25,
     category: "Exhibidores",
-    quantity: 1,
   },
   {
     id: "exhibidor3",
@@ -127,7 +119,6 @@ export const FURNITURES = [
     name: "Gondola",
     price: 18,
     category: "Exhibidores",
-    quantity: 1,
   },
   {
     id: "decoracion1",
@@ -136,11 +127,10 @@ export const FURNITURES = [
     name: "Matas",
     price: 5,
     category: "Decoración",
-    quantity: 1,
   },
 ];
 
-export const PRODUCTS_LISTS = [
+export const WALL_LISTS = [
   {
     id: "3paredes",
     image: "/AreaStands/3paredes.jpg",

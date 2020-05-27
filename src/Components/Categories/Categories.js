@@ -54,7 +54,11 @@ class Categories extends React.Component {
             </Row>
           </ul>
         </div>
-        <Furniture selectedCategories={this.state.selectedCategories} />
+        <Furniture
+          selectedCategories={this.state.selectedCategories}
+          itemQuantity={this.props.itemQuantity}
+          changeQuantity={this.props.changeQuantity}
+        />
       </div>
     );
   }

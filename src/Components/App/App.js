@@ -3,7 +3,6 @@ import "./App.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css";
 import Home from "../Home/Home";
-import FormNew from "../FormNew/FormNew";
 import Area from "../Area/Area";
 import Form from "../Form/Form";
 import Products from "../Products/Products";
@@ -19,19 +18,49 @@ class App extends React.Component {
       nombreDeContacto: null,
       email: null,
       pais: null,
-      id: "",
+      wallId: "",
+      floorId: "",
+      areaId: "",
       errors: {
         nombreDeLaEmpresa: "",
         nombreDeContacto: "",
         email: "",
         pais: "",
       },
+      itemQuantity: {
+        mesa1: 0,
+        mesa2: 0,
+        mesa3: 0,
+        silla1: 0,
+        silla2: 0,
+        silla3: 0,
+        exhibidor1: 0,
+        exhibidor2: 0,
+        exhibidor3: 0,
+        decoracion1: 0,
+      },
     };
-    this.changeColor = this.changeColor.bind(this);
+    this.changeArea = this.changeArea.bind(this);
+    this.changeWalls = this.changeWalls.bind(this);
+    this.changeFloor = this.changeFloor.bind(this);
+    this.changeQuantity = this.changeQuantity.bind(this);
   }
 
-  changeColor(myId) {
-    this.setState({ id: myId });
+  changeQuantity(e, itemQuantity) {
+    console.log("ssssss", itemQuantity, e.target.value);
+    this.setState({ [itemQuantity]: e.target.value });
+  }
+
+  changeWalls(wallId) {
+    this.setState({ wallId });
+  }
+
+  changeFloor(floorId) {
+    this.setState({ floorId });
+  }
+
+  changeArea(areaId) {
+    this.setState({ areaId });
   }
 
   handleChange = (errors, name, value) => {
@@ -51,14 +80,24 @@ class App extends React.Component {
             errors={this.state.errors}
             handleChange={this.handleChange}
           />
-          <Area changeColor={this.changeColor} id={this.state.id} />
-          <Products />
-          <Categories />
-          <Furniture />
+          <Area changeArea={this.changeArea} areaId={this.state.areaId} />
+          <Products
+            changeWalls={this.changeWalls}
+            changeFloor={this.changeFloor}
+            wallId={this.state.wallId}
+            floorId={this.state.floorId}
+          />
+          <Categories
+            itemQuantity={this.state.itemQuantity}
+            changeQuantity={this.changeQuantity}
+          />
           <Resume
             nombreDeLaEmpresa={this.state.nombreDeLaEmpresa}
-            changeColor={this.changeColor}
-            id={this.state.id}
+            areaId={this.state.areaId}
+            wallId={this.state.wallId}
+            floorId={this.state.floorId}
+            itemQuantity={this.state.itemQuantity}
+            changeQuantity={this.changeQuantity}
           />
         </div>
       </div>

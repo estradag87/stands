@@ -13,11 +13,11 @@ class Area extends React.Component {
             {AREA_LIST.map((item) => (
               <Col lg={4} md={3} sm={12} xs={12}>
                 <li
-                  onClick={() => this.props.changeColor(item.id)}
+                  onClick={() => this.props.changeArea(item.id)}
                   className={`portafolio ${
-                    item.id === this.props.id
+                    item.id === this.props.areaId
                       ? "active"
-                      : this.props.id
+                      : this.props.areaId
                       ? "inactive"
                       : ""
                   }`}

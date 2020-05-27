@@ -5,18 +5,9 @@ import Categories from "../Categories/Categories";
 import { FURNITURES } from "../../constants";
 
 class Furniture extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { quantity: 0 };
-
-    this.changeQuantity = this.changeQuantity.bind(this);
-  }
-  changeQuantity(e, itemId) {
-    this.setState({ [itemId]: e.target.value });
-  }
-
   render() {
+    console.log("state", this.state);
+
     return (
       <div clasName="section4">
         <div className="showFurnitureList">
@@ -43,7 +34,9 @@ class Furniture extends React.Component {
                         <Form.Label>Cantidad</Form.Label>
                         <Form.Control
                           as="select"
-                          onChange={(e) => this.changeQuantity(e, item.id)}
+                          onChange={(e) =>
+                            this.props.changeQuantity(e, item.id)
+                          }
                         >
                           <option>---</option>
                           <option>1</option>
@@ -55,7 +48,7 @@ class Furniture extends React.Component {
                       </Form.Group>
                     </form>
                     <div className="SumFurniture">
-                      {item.price * (this.state[item.id] || 0)}
+                      {item.price * ([item.id] || 0)}
                     </div>
                   </li>
                 </Col>
