@@ -9,46 +9,51 @@ import Products from "../Products/Products";
 import Categories from "../Categories/Categories";
 import Furniture from "../Furniture/Furniture";
 import Resume from "../Resume/Resume";
+import AddFurniture from "../AddFurniture";
+import { FURNITURES } from "../../constants/index";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      nombreDeLaEmpresa: null,
-      nombreDeContacto: null,
-      email: null,
-      pais: null,
-      wallId: "",
-      floorId: "",
-      areaId: "",
-      errors: {
-        nombreDeLaEmpresa: "",
-        nombreDeContacto: "",
-        email: "",
-        pais: "",
-      },
-      itemQuantity: {
-        mesa1: 0,
-        mesa2: 0,
-        mesa3: 0,
-        silla1: 0,
-        silla2: 0,
-        silla3: 0,
-        exhibidor1: 0,
-        exhibidor2: 0,
-        exhibidor3: 0,
-        decoracion1: 0,
-      },
-    };
-    this.changeArea = this.changeArea.bind(this);
-    this.changeWalls = this.changeWalls.bind(this);
-    this.changeFloor = this.changeFloor.bind(this);
-    this.changeQuantity = this.changeQuantity.bind(this);
-  }
+  state = {
+    furnitures: {},
+    nombreDeLaEmpresa: null,
+    nombreDeContacto: null,
+    email: null,
+    pais: null,
+    wallId: "",
+    floorId: "",
+    areaId: "",
+    errors: {
+      nombreDeLaEmpresa: "",
+      nombreDeContacto: "",
+      email: "",
+      pais: "",
+    },
+    itemQuantity: {
+      mesa1: 0,
+      mesa2: 0,
+      mesa3: 0,
+      silla1: 0,
+      silla2: 0,
+      silla3: 0,
+      exhibidor1: 0,
+      exhibidor2: 0,
+      exhibidor3: 0,
+      decoracion1: 0,
+    },
+  };
 
-  changeQuantity(e, itemQuantity) {
-    console.log("ssssss", itemQuantity, e.target.value);
-    this.setState({ [itemQuantity]: e.target.value });
+  addNewFurniture = (furnitureNew) => {
+    const furnitures = { ...this.state.furnitures };
+    furnitures[`furniture${Date.now()}`] = furnitureNew;
+    this.setState({ furnitures });
+  };
+
+  loadSampleFurniture = () => {
+    this.setState({ furnitures: FURNITURES });
+  };
+
+  changeQuantity(e, x) {
+    this.setState({ [x]: e.target.value });
   }
 
   changeWalls(wallId) {
@@ -98,6 +103,10 @@ class App extends React.Component {
             floorId={this.state.floorId}
             itemQuantity={this.state.itemQuantity}
             changeQuantity={this.changeQuantity}
+          />
+          <AddFurniture
+            addNewFurniture={this.addNewFurniture}
+            loadSampleFurniture={this.loadSampleFurniture}
           />
         </div>
       </div>

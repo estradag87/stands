@@ -60,13 +60,13 @@ class Form extends React.Component {
             <Row className="justify-content-lg-center">
               <Col lg={3} md={5} sm={12} xs={12}>
                 <div className="nombreDeLaEmpresa">
-                  <label htmlFor="nombreDeLaEmpresa">
-                    Nombre de la empresa
-                  </label>
+                  <label htmlFor="nombreDeLaEmpresa"></label>
                   <br></br>
                   <input
                     type="text"
                     name="nombreDeLaEmpresa"
+                    required
+                    placeholder="Nombre de la empresa"
                     onChange={this.handleChange}
                     noValidate
                   />
@@ -84,11 +84,13 @@ class Form extends React.Component {
               </Col>
               <Col lg={3} md={5} sm={12} xs={12}>
                 <div className="nombreDeContacto">
-                  <label htmlFor="nombreDeContacto">Nombre de contacto</label>
+                  <label htmlFor="nombreDeContacto"></label>
                   <br></br>
                   <input
                     type="text"
                     name="nombreDeContacto"
+                    required
+                    placeholder="Nombre de contacto"
                     onChange={this.handleChange}
                     noValidate
                   />
@@ -106,11 +108,13 @@ class Form extends React.Component {
             <Row className="justify-content-lg-center">
               <Col lg={3} md={5} sm={12} xs={12}>
                 <div className="email">
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="email"></label>
                   <br></br>
                   <input
                     type="email"
                     name="email"
+                    required
+                    placeholder="Email"
                     onChange={this.handleChange}
                     noValidate
                   />
@@ -124,11 +128,13 @@ class Form extends React.Component {
               </Col>
               <Col lg={3} md={5} sm={12} xs={12}>
                 <div className="pais">
-                  <label htmlFor="pais">País</label>
+                  <label htmlFor="pais"></label>
                   <br></br>
                   <input
                     type="text"
                     name="pais"
+                    required
+                    placeholder="País"
                     onChange={this.handleChange}
                     noValidate
                   />
