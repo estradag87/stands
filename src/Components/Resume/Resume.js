@@ -47,19 +47,35 @@ class Resume extends React.Component {
         </div>
         <div className="displayFurniture">
           <ul>
-            {FURNITURES.filter(
-              (furniture) => this.props.itemQuantity[furniture.id] > 0
-            ).map((item) => (
-              <li className="showFurniture" key={item.id}>
+            {Object.keys(this.props.furnituresResume).map((item) => (
+              <li
+                className="showFurniture"
+                key={this.props.furnitures[item].id}
+              >
                 <div className="showImage">
-                  <img className="image" src={item.image} />
+                  <img
+                    className="image"
+                    src={this.props.furnitures[item].image}
+                  />
                 </div>
-                <div className="name">{item.name}</div>
-                <div className="price">${item.price} USD</div>
+                <div className="name">{this.props.furnitures[item].name}</div>
+                <div className="quantity">
+                  {this.props.furnituresResume[item]}
+                </div>
+                <div className="SumFurniture">
+                  {this.props.furnitures[item].price *
+                    (this.props.furnituresResume[item] || 0)}
+                </div>
               </li>
             ))}
           </ul>
         </div>
+        {/* <div className='total'>
+              {(this.props.furnituresResume).reduce((prevTotal, item) => {
+                prevTotal + {this.props.furnitures[item].price *
+                    this.props.furnituresResume[item]};
+              })}
+              </div> */}
       </div>
     );
   }

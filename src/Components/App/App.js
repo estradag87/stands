@@ -15,6 +15,7 @@ import { FURNITURES } from "../../constants/index";
 class App extends React.Component {
   state = {
     furnitures: {},
+    furnituresResume: {},
     nombreDeLaEmpresa: null,
     nombreDeContacto: null,
     email: null,
@@ -28,21 +29,10 @@ class App extends React.Component {
       email: "",
       pais: "",
     },
-    itemQuantity: {
-      mesa1: 0,
-      mesa2: 0,
-      mesa3: 0,
-      silla1: 0,
-      silla2: 0,
-      silla3: 0,
-      exhibidor1: 0,
-      exhibidor2: 0,
-      exhibidor3: 0,
-      decoracion1: 0,
-    },
   };
 
   addNewFurniture = (furnitureNew) => {
+    console.log("------------", furnitureNew);
     const furnitures = { ...this.state.furnitures };
     furnitures[`furniture${Date.now()}`] = furnitureNew;
     this.setState({ furnitures });
@@ -52,21 +42,23 @@ class App extends React.Component {
     this.setState({ furnitures: FURNITURES });
   };
 
-  changeQuantity(e, x) {
-    this.setState({ [x]: e.target.value });
-  }
+  AddToFurnituresResume = (key) => {
+    const furnituresResume = { ...this.state.furnituresResume };
+    furnituresResume[key] = furnituresResume[key] + 1 || 1;
+    this.setState({ furnituresResume });
+  };
 
-  changeWalls(wallId) {
+  changeWalls = (wallId) => {
     this.setState({ wallId });
-  }
+  };
 
-  changeFloor(floorId) {
+  changeFloor = (floorId) => {
     this.setState({ floorId });
-  }
+  };
 
-  changeArea(areaId) {
+  changeArea = (areaId) => {
     this.setState({ areaId });
-  }
+  };
 
   handleChange = (errors, name, value) => {
     this.setState({ errors, [name]: value });
@@ -94,7 +86,9 @@ class App extends React.Component {
           />
           <Categories
             itemQuantity={this.state.itemQuantity}
-            changeQuantity={this.changeQuantity}
+            AddToFurnituresResume={this.AddToFurnituresResume}
+            furnitures={this.state.furnitures}
+            furnituresResume={this.state.furnituresResume}
           />
           <Resume
             nombreDeLaEmpresa={this.state.nombreDeLaEmpresa}
@@ -103,6 +97,9 @@ class App extends React.Component {
             floorId={this.state.floorId}
             itemQuantity={this.state.itemQuantity}
             changeQuantity={this.changeQuantity}
+            furnitures={this.state.furnitures}
+            furnituresResume={this.state.furnituresResume}
+            AddToFurnituresResume={this.AddToFurnituresResume}
           />
           <AddFurniture
             addNewFurniture={this.addNewFurniture}

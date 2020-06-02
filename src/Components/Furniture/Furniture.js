@@ -6,53 +6,56 @@ import { FURNITURES } from "../../constants";
 
 class Furniture extends React.Component {
   render() {
-    console.log("state", this.state);
-
+    // console.log(this.props.furnitures, this.props.selectedCategories);
     return (
       <div clasName="section4">
         <div className="showFurnitureList">
           <h3 className="categorydisplay">{this.props.categoryChoosen}</h3>
           <ul>
             <Row className="justify-content-lg-center">
-              {FURNITURES.filter(
-                (furniture) =>
-                  this.props.selectedCategories &&
-                  this.props.selectedCategories.includes(furniture.category)
-              ).map((item) => (
-                <Col lg={3} md={3} sm={12} xs={12}>
-                  <li className="showFurniture" key={item.id}>
-                    <div className="showImage">
-                      <img className="image" src={item.image} />
-                    </div>
-                    <div className="name">{item.name}</div>
-                    <div className="price">${item.price} USD</div>
-                    <form>
-                      <Form.Group
-                        controlId="exampleForm.ControlSelect1"
-                        className="selection"
+              {Object.keys(this.props.furnitures)
+                .filter((furniture) => {
+                  console.log(furniture);
+                  return (
+                    this.props.selectedCategories &&
+                    this.props.selectedCategories.includes(
+                      this.props.furnitures[furniture].category
+                    )
+                  );
+                })
+                .map((item) => (
+                  <Col lg={3} md={3} sm={12} xs={12}>
+                    <li
+                      className="showFurniture"
+                      key={this.props.furnitures[item].id}
+                    >
+                      <div className="showImage">
+                        <img
+                          className="image"
+                          src={this.props.furnitures[item].image}
+                        />
+                      </div>
+                      <div className="name">
+                        {this.props.furnitures[item].name}
+                      </div>
+                      <div className="price">
+                        ${this.props.furnitures[item].price} USD
+                      </div>
+                      <button
+                        onClick={() =>
+                          this.props.AddToFurnituresResume(
+                            this.props.furnitures[item].id
+                          )
+                        }
                       >
-                        <Form.Label>Cantidad</Form.Label>
-                        <Form.Control
-                          as="select"
-                          onChange={(e) =>
-                            this.props.changeQuantity(e, item.id)
-                          }
-                        >
-                          <option>---</option>
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </Form.Control>
-                      </Form.Group>
-                    </form>
-                    <div className="SumFurniture">
-                      {item.price * ([item.id] || 0)}
-                    </div>
-                  </li>
-                </Col>
-              ))}
+                        +
+                      </button>
+                      <div className="quantity">
+                        {this.props.furnituresResume[item]}
+                      </div>
+                    </li>
+                  </Col>
+                ))}
             </Row>
           </ul>
         </div>

@@ -14,6 +14,7 @@ class Categories extends React.Component {
   }
 
   changeCategory(categoryName) {
+    console.log(11111, categoryName);
     // Check if selected categories includes new one, if exist, early return
     if (this.state.selectedCategories.includes(categoryName)) {
       return;
@@ -57,7 +58,9 @@ class Categories extends React.Component {
         <Furniture
           selectedCategories={this.state.selectedCategories}
           itemQuantity={this.props.itemQuantity}
-          changeQuantity={this.props.changeQuantity}
+          AddToFurnituresResume={this.props.AddToFurnituresResume}
+          furnitures={this.props.furnitures}
+          furnituresResume={this.props.furnituresResume}
         />
       </div>
     );
