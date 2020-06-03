@@ -9,6 +9,17 @@ import {
 
 class Resume extends React.Component {
   render() {
+    let sumArea = 0;
+    if (this.props.areaId === 5) {
+      sumArea = 1000;
+    } else if (this.props.areaId === 10) {
+      sumArea = 1500;
+    } else if (this.props.areaId === 15) {
+      sumArea = 2000;
+    } else {
+      sumArea = 0;
+    }
+
     return (
       <div>
         <h2>RESUMEN DE TU STAND</h2>
@@ -70,12 +81,18 @@ class Resume extends React.Component {
             ))}
           </ul>
         </div>
-        {/* <div className='total'>
-              {(this.props.furnituresResume).reduce((prevTotal, item) => {
-                prevTotal + {this.props.furnitures[item].price *
-                    this.props.furnituresResume[item]};
-              })}
-              </div> */}
+        <div className="total">
+          {Object.keys(this.props.furnituresResume).reduce(
+            (prevTotal, item) => {
+              return (
+                prevTotal +
+                this.props.furnitures[item].price *
+                  this.props.furnituresResume[item]
+              );
+            },
+            sumArea
+          )}
+        </div>
       </div>
     );
   }
