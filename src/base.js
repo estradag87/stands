@@ -1,7 +1,7 @@
 import Rebase from "re-base";
 import firebase from "firebase";
 
-const firebaseApp = firebase.inicializeApp({
+const firebaseApp = firebase.initializeApp({
   apiKey: "AIzaSyCbJGMdOd0F63I3vkU2LUBE-FvQczNKfXM",
   authDomain: "stands-61e4c.firebaseapp.com",
   databaseURL: "https://stands-61e4c.firebaseio.com",
