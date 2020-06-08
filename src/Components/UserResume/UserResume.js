@@ -8,7 +8,7 @@ import Categories from "../Categories/Categories";
 import Resume from "../Resume/Resume";
 import AddFurniture from "../AddFurniture";
 import { FURNITURES } from "../../constants/index";
-import base from "../../base";
+import base, { firebaseApp } from "../../base";
 
 class UserResume extends React.Component {
   state = {
@@ -19,17 +19,41 @@ class UserResume extends React.Component {
     areaId: "",
   };
 
-  componentDidMount() {
-    const { params } = this.props.match;
-    this.ref = base.syncState(`${params.nombreDeLaEmpresa}/furnitures`, {
-      context: this,
-      state: "furnitures",
-    });
-  }
+  // componentDidMount() {
+  //   const { params } = this.props.match;
+  //   this.ref = base.syncState(
+  //     `${params.nombreDeLaEmpresa}/furnituresResume/areaId`,
+  //     {
+  //       context: this,
+  //       state: "areaId",
+  //     }
+  //   );
+  //   this.ref = base.syncState(
+  //     `${params.nombreDeLaEmpresa}/furnituresResume/wallId`,
+  //     {
+  //       context: this,
+  //       state: "wallId",
+  //     }
+  //   );
+  //   this.ref = base.syncState(
+  //     `${params.nombreDeLaEmpresa}/furnituresResume/floorId`,
+  //     {
+  //       context: this,
+  //       state: "floorId",
+  //     }
+  //   );
+  //   this.ref = base.syncState(
+  //     `${params.nombreDeLaEmpresa}/furnituresResume/furnitures`,
+  //     {
+  //       context: this,
+  //       state: "furnitures",
+  //     }
+  //   );
+  // }
 
-  componentWillUnmount() {
-    base.removeBinding(this.ref);
-  }
+  // componentWillUnmount() {
+  //   base.removeBinding(this.ref);
+  // }
 
   addNewFurniture = (furnitureNew) => {
     console.log("------------", furnitureNew);
@@ -38,15 +62,21 @@ class UserResume extends React.Component {
     this.setState({ furnitures });
   };
 
-  loadSampleFurniture = () => {
+  componentWillMount() {
     this.setState({ furnitures: FURNITURES });
-  };
+  }
 
   AddToFurnituresResume = (key) => {
     const furnituresResume = { ...this.state.furnituresResume };
     furnituresResume[key] = furnituresResume[key] + 1 || 1;
     this.setState({ furnituresResume });
   };
+
+  // subtractToFurnituresResume = (key) => {
+  //   const furnituresResume = { ...this.state.furnituresResume };
+  //   furnituresResume[key] = furnituresResume[key] - 1 || 0;
+  //   this.setState({ furnituresResume });
+  // };
 
   changeWalls = (wallId) => {
     this.setState({ wallId });
@@ -58,6 +88,30 @@ class UserResume extends React.Component {
 
   changeArea = (areaId) => {
     this.setState({ areaId });
+  };
+
+  // test = async () => {
+  //   const x = await firebaseApp
+  //     .database()
+  //     .ref("prueba/122" + new Date().valueOf())
+  //     .set({
+  //       name: "FUck",
+  //       lastName: "You",
+  //     });
+  //   console.log(x);
+  // };
+
+  infoToBase = async () => {
+    const x = await firebaseApp
+      .database()
+      .ref(this.props.match.params.nombreDeLaEmpresa)
+      .set({
+        Area: this.state.areaId,
+        Walls: this.state.wallId,
+        Floor: this.state.floorId,
+        FurnituresSelected: this.state.furnituresResume,
+      });
+    console.log(x);
   };
 
   render() {
@@ -75,9 +129,11 @@ class UserResume extends React.Component {
           <Categories
             itemQuantity={this.state.itemQuantity}
             AddToFurnituresResume={this.AddToFurnituresResume}
+            subtractToFurnituresResume={this.subtractToFurnituresResume}
             furnitures={this.state.furnitures}
             furnituresResume={this.state.furnituresResume}
           />
+          <button onClick={this.infoToBase}>COTIZAR</button>
           <Resume
             nombreDeLaEmpresa={this.state.nombreDeLaEmpresa}
             areaId={this.state.areaId}
@@ -89,6 +145,7 @@ class UserResume extends React.Component {
             furnituresResume={this.state.furnituresResume}
             AddToFurnituresResume={this.AddToFurnituresResume}
           />
+
           <AddFurniture
             addNewFurniture={this.addNewFurniture}
             loadSampleFurniture={this.loadSampleFurniture}

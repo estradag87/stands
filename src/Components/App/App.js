@@ -16,6 +16,7 @@ class App extends React.Component {
       nombreDeContacto: "",
       email: "",
       pais: "",
+      referenciaStand: "",
     },
   };
 
@@ -36,6 +37,7 @@ class App extends React.Component {
             errors={this.state.errors}
             handleChange={this.handleChange}
             history={this.props.history}
+            match={this.props.match}
           />
         </div>
       </div>

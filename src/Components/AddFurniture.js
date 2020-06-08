@@ -50,9 +50,6 @@ class AddFurniture extends React.Component {
           </select>
           <button type="submit">+ agregar nuevo producto</button>
         </form>
-        <button onClick={this.props.loadSampleFurniture}>
-          Cargar productos existentes
-        </button>
       </div>
     );
   }

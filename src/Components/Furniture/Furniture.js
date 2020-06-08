@@ -53,6 +53,15 @@ class Furniture extends React.Component {
                       <div className="quantity">
                         {this.props.furnituresResume[item]}
                       </div>
+                      {/* <button
+                        onClick={() =>
+                          this.props.subtractToFurnituresResume(
+                            this.props.furnitures[item].id
+                          )
+                        }
+                      >
+                        -
+                      </button> */}
                     </li>
                   </Col>
                 ))}

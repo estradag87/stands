@@ -61,6 +61,7 @@ class Categories extends React.Component {
           AddToFurnituresResume={this.props.AddToFurnituresResume}
           furnitures={this.props.furnitures}
           furnituresResume={this.props.furnituresResume}
+          subtractToFurnituresResume={this.subtractToFurnituresResume}
         />
       </div>
     );
