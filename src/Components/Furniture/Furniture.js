@@ -2,63 +2,43 @@ import React, { useState, useEffect } from "react";
 import "./Furniture.scss";
 import { Row, Col, Button, Form } from "react-bootstrap";
 import Categories from "../Categories/Categories";
-import { FURNITURES } from "../../constants";
+import { ADD_PRODUCT_QUANTITY } from "../../constants";
 import { connect } from "react-redux";
 
-const Area = ({ FURNITURES, selectedCategories, furnitures }) => (
-
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    furnitures: FURNITURES 
-  });
-
-// class Furniture extends React.Component {
-//   render() {
-//     // console.log(this.props.furnitures, this.props.selectedCategories);
-//     return (
-      <div clasName="section4">
-        <div className="showFurnitureList">
-          <h3 className="categorydisplay">{this.props.categoryChoosen}</h3>
-          <ul>
-            <Row className="justify-content-lg-center">
-              {Object.keys(furnitures)
-                .filter((furniture) => {
-                  console.log(furniture);
-                  return (
-                    selectedCategories &&
-                    selectedCategories.includes(
-                      furnitures[furniture].category
-                    )
-                  );
-                })
-                .map((item) => (
-                  <Col lg={3} md={3} sm={12} xs={12}>
-                    <li
-                      className="showFurniture"
-                      key={furnitures[item].id}
+const Furniture = ({
+  FURNITURES,
+  selectedCategories,
+  dbFurnitures,
+  addProductQuantity,
+}) => {
+  return (
+    <div clasName="section4">
+      <div className="showFurnitureList">
+        {/* <h3 className="categorydisplay">{this.props.categoryChoosen}</h3> */}
+        <ul>
+          <Row className="justify-content-lg-center">
+            {Object.keys(dbFurnitures)
+              .filter((furniture) => {
+                return (
+                  selectedCategories &&
+                  selectedCategories.includes(dbFurnitures[furniture].category)
+                );
+              })
+              .map((item) => (
+                <Col lg={3} md={3} sm={12} xs={12}>
+                  <li className="showFurniture" key={dbFurnitures[item].id}>
+                    <div className="showImage">
+                      <img className="image" src={dbFurnitures[item].image} />
+                    </div>
+                    <div className="name">{dbFurnitures[item].name}</div>
+                    <div className="price">${dbFurnitures[item].price} USD</div>
+                    <button
+                      onClick={() => addProductQuantity(dbFurnitures[item].id)}
                     >
-                      <div className="showImage">
-                        <img
-                          className="image"
-                          src={furnitures[item].image}
-                        />
-                      </div>
-                      <div className="name">
-                        {furnitures[item].name}
-                      </div>
-                      <div className="price">
-                        ${furnitures[item].price} USD
-                      </div>
-                      <button
-                        onClick={() =>
-                          setCount(count + 1)}>
-                        +
-                      </button>
-                      <div className="quantity">
-                        {this.props.furnituresResume[item]}
-                      </div>
-                      {/* <button
+                      +
+                    </button>
+                    {/* <div className="quantity">{furnituresResume[item]}</div> */}
+                    {/* <button
                         onClick={() =>
                           this.props.subtractToFurnituresResume(
                             this.props.furnitures[item].id
@@ -67,29 +47,29 @@ const Area = ({ FURNITURES, selectedCategories, furnitures }) => (
                       >
                         -
                       </button> */}
-                    </li>
-                  </Col>
-                ))}
-            </Row>
-          </ul>
-        </div>
+                  </li>
+                </Col>
+              ))}
+          </Row>
+        </ul>
       </div>
-    );
-//   }
-// }
+    </div>
+  );
+};
+
 const mapStateToProps = (state) => ({
-  furnitures: state.furnitures,
+  dbFurnitures: state.dbFurnitures,
+  selectedCategories: state.selectedCategories,
   FURNITURES: state.FURNITURES,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  chooseAre(area) {
+  addProductQuantity(productId) {
     dispatch({
-      type: "CHOOSE_AREA",
-      area,
+      type: ADD_PRODUCT_QUANTITY,
+      productId,
     });
   },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Furniture);
-

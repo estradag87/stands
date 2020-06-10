@@ -6,10 +6,15 @@ import { createStore } from "redux";
 import {
   AREA_LIST,
   CATEGORY_LIST,
-  //   FURNITURES,
+  FURNITURES,
   WALL_LISTS,
   FLOOR_OPTIONS,
-} from "./constants/index";
+  CHANGE_CATEGORY,
+  CHANGE_FLOOR,
+  CHOOSE_AREA,
+  CHANGE_WALLS,
+  ADD_PRODUCT_QUANTITY,
+} from "./constants";
 
 const initialState = {
   furnitures: {},
@@ -23,36 +28,48 @@ const initialState = {
   selectedCategories: [],
   CATEGORY_LIST,
   categoryName: "",
-  FURNITURES,
+  dbFurnitures: FURNITURES,
 };
 
 const reducerUserChart = (state = initialState, action) => {
-  console.log(action);
-  if (action.type === "CHOOSE_AREA") {
-    return {
-      ...state,
-      areaId: action.area,
-    };
+  switch (action.type) {
+    case CHOOSE_AREA:
+      return {
+        ...state,
+        areaId: action.area,
+      };
+
+    case CHANGE_WALLS:
+      return {
+        ...state,
+        wallId: action.wall,
+      };
+
+    case CHANGE_FLOOR:
+      return {
+        ...state,
+        floorId: action.floor,
+      };
+
+    case CHANGE_CATEGORY:
+      if (state.selectedCategories.includes(action.categoryName)) {
+        return state;
+      }
+
+      return {
+        ...state,
+        selectedCategories: state.selectedCategories.concat(
+          action.categoryName
+        ),
+      };
+
+    case ADD_PRODUCT_QUANTITY:
+      // TAREA
+      return state;
+
+    default:
+      return state;
   }
-  if (action.type === "CHANGE_WALLS") {
-    return {
-      ...state,
-      wallId: action.wall,
-    };
-  }
-  if (action.type === "CHANGE_FLOOR") {
-    return {
-      ...state,
-      floorId: action.floor,
-    };
-  }
-  if (action.type === "CHANGE_CATEGORY") {
-    return {
-      ...state,
-      selectedCategories: state.selectedCategories.concat(action.floor),
-    };
-  }
-  return state;
 };
 
 export default createStore(reducerUserChart);

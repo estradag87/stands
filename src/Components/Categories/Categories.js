@@ -1,43 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Categories.scss";
 import { Row, Col } from "react-bootstrap";
 import Furniture from "../Furniture/Furniture";
-import { CATEGORY_LIST } from "../../constants";
+import { CHANGE_CATEGORY } from "../../constants";
 import { connect } from "react-redux";
+
+// const x = { a: 1 }
+// const { a } = x -> x.a -> 1
 
 const Categories = ({
   CATEGORY_LIST,
   changeCategory,
   categoryName,
   selectedCategories,
+  addToFurnituresResume,
+  furnitures,
+  furnituresResume,
 }) => (
-  // class Categories extends React.Component {
-  //   constructor(props) {
-  //     super(props);
-
-  //     this.state = { selectedCategories: [] };
-
-  //     this.changeCategory = this.changeCategory.bind(this);
-  //   }
-
-  //   changeCategory(categoryName) {
-  //     console.log(11111, categoryName);
-  //   // Check if selected categories includes new one, if exist, early return
-  //   if (selectedCategories.includes(categoryName)) {
-  //     return;
-  //   }
-
-  //   // [a, b, c] -> d
-  //   // Sin ... -> [[a, b, c], d]
-  //   // Con ... -> [a, b, c, d]
-  //   // Destructuring ES6 -> Investigar
-  //   const categoriesList = [...selectedCategories, categoryName];
-
-  //   this.setState({ selectedCategories: categoriesList });
-  // }
-
-  // render() {
-  //   return (
   <div>
     <div className="showCategoiesList">
       <h3 className="categoryProducts">
@@ -63,17 +42,12 @@ const Categories = ({
       </ul>
     </div>
     <Furniture
-      // selectedCategories={this.state.selectedCategories}
-      // itemQuantity={this.props.itemQuantity}
-      AddToFurnituresResume={this.props.AddToFurnituresResume}
-      furnitures={this.props.furnitures}
-      furnituresResume={this.props.furnituresResume}
-      subtractToFurnituresResume={this.subtractToFurnituresResume}
+      addToFurnituresResume={addToFurnituresResume}
+      furnitures={furnitures}
+      furnituresResume={furnituresResume}
     />
   </div>
 );
-// }
-// }
 
 const mapStateToProps = (state) => ({
   CATEGORY_LIST: state.CATEGORY_LIST,
@@ -83,7 +57,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   changeCategory(categoryName) {
     dispatch({
-      type: "CHANGE_CATEGORY",
+      type: CHANGE_CATEGORY,
       categoryName,
     });
   },
