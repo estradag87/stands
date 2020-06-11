@@ -3,6 +3,7 @@ import "./Furniture.scss";
 import { Row, Col, Button, Form } from "react-bootstrap";
 import Categories from "../Categories/Categories";
 import { ADD_PRODUCT_QUANTITY } from "../../constants";
+import { REST_PRODUCT_QUANTITY } from "../../constants";
 import { connect } from "react-redux";
 
 const Furniture = ({
@@ -10,7 +11,10 @@ const Furniture = ({
   selectedCategories,
   dbFurnitures,
   addProductQuantity,
+  furnituresResume,
+  restProductQuantity,
 }) => {
+  console.log(furnituresResume);
   return (
     <div clasName="section4">
       <div className="showFurnitureList">
@@ -37,16 +41,12 @@ const Furniture = ({
                     >
                       +
                     </button>
-                    {/* <div className="quantity">{furnituresResume[item]}</div> */}
-                    {/* <button
-                        onClick={() =>
-                          this.props.subtractToFurnituresResume(
-                            this.props.furnitures[item].id
-                          )
-                        }
-                      >
-                        -
-                      </button> */}
+                    <div className="quantity">{furnituresResume[item]}</div>
+                    <button
+                      onClick={() => restProductQuantity(dbFurnitures[item].id)}
+                    >
+                      -
+                    </button>
                   </li>
                 </Col>
               ))}
@@ -61,12 +61,19 @@ const mapStateToProps = (state) => ({
   dbFurnitures: state.dbFurnitures,
   selectedCategories: state.selectedCategories,
   FURNITURES: state.FURNITURES,
+  furnituresResume: state.furnituresResume,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   addProductQuantity(productId) {
     dispatch({
       type: ADD_PRODUCT_QUANTITY,
+      productId,
+    });
+  },
+  restProductQuantity(productId) {
+    dispatch({
+      type: REST_PRODUCT_QUANTITY,
       productId,
     });
   },

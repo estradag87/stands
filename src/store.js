@@ -14,11 +14,12 @@ import {
   CHOOSE_AREA,
   CHANGE_WALLS,
   ADD_PRODUCT_QUANTITY,
+  REST_PRODUCT_QUANTITY,
 } from "./constants";
 
 const initialState = {
   furnitures: {},
-  //   furnituresResume: {},
+  furnituresResume: {},
   wallId: "",
   floorId: "",
   areaId: "",
@@ -64,8 +65,27 @@ const reducerUserChart = (state = initialState, action) => {
       };
 
     case ADD_PRODUCT_QUANTITY:
-      // TAREA
-      return state;
+      return {
+        ...state,
+        furnituresResume: {
+          ...state.furnituresResume,
+          [action.productId]: state.furnituresResume[action.productId] + 1 || 1,
+        },
+      };
+    case REST_PRODUCT_QUANTITY:
+      let substractQuantity = state.furnituresResume[action.productId];
+      if (state.furnituresResume[action.productId] >= 1) {
+        substractQuantity = substractQuantity - 1 || null;
+      } else {
+        substractQuantity = null;
+      }
+      return {
+        ...state,
+        furnituresResume: {
+          ...state.furnituresResume,
+          [action.productId]: substractQuantity,
+        },
+      };
 
     default:
       return state;

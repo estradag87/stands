@@ -13,10 +13,7 @@ const Router = () => (
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/company/:nombreDeLaEmpresa" component={UserResume} />
-        <Route
-          path="/company/:nombreDeLaEmpresa/:nombreDeLaEmpresa"
-          component={Chart}
-        />
+        <Route path="/a" component={Chart} />
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>

@@ -66,7 +66,7 @@ class UserResume extends React.Component {
     this.setState({ furnitures: FURNITURES });
   }
 
-  addToFurnituresResume = (key) => {
+  AddToFurnituresResume = (key) => {
     const furnituresResume = { ...this.state.furnituresResume };
     furnituresResume[key] = furnituresResume[key] + 1 || 1;
     this.setState({ furnituresResume });
@@ -128,13 +128,13 @@ class UserResume extends React.Component {
           />
           <Categories
             itemQuantity={this.state.itemQuantity}
-            addToFurnituresResume={this.addToFurnituresResume}
+            AddToFurnituresResume={this.AddToFurnituresResume}
             subtractToFurnituresResume={this.subtractToFurnituresResume}
             furnitures={this.state.furnitures}
             furnituresResume={this.state.furnituresResume}
           />
           <button onClick={this.infoToBase}>COTIZAR</button>
-          <Resume
+          {/* <Resume
             nombreDeLaEmpresa={this.state.nombreDeLaEmpresa}
             areaId={this.state.areaId}
             wallId={this.state.wallId}
@@ -143,8 +143,8 @@ class UserResume extends React.Component {
             changeQuantity={this.changeQuantity}
             furnitures={this.state.furnitures}
             furnituresResume={this.state.furnituresResume}
-            addToFurnituresResume={this.addToFurnituresResume}
-          />
+            AddToFurnituresResume={this.AddToFurnituresResume}
+          /> */}
 
           <AddFurniture
             addNewFurniture={this.addNewFurniture}
