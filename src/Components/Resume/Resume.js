@@ -7,6 +7,7 @@ import {
   FURNITURES,
 } from "../../constants";
 import { connect } from "react-redux";
+import NavBar from "../Home/NavBar";
 
 const Resume = ({
   FURNITURES,

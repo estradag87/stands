@@ -15,6 +15,7 @@ import {
   CHANGE_WALLS,
   ADD_PRODUCT_QUANTITY,
   REST_PRODUCT_QUANTITY,
+  GO_TO_CHART,
 } from "./constants";
 
 const initialState = {
@@ -84,6 +85,14 @@ const reducerUserChart = (state = initialState, action) => {
         furnituresResume: {
           ...state.furnituresResume,
           [action.productId]: substractQuantity,
+        },
+      };
+    case GO_TO_CHART:
+      return {
+        ...state,
+        furnituresResume: {
+          ...state.furnituresResume,
+          [action.productId]: state.furnituresResume[action.productId] + 1 || 1,
         },
       };
 

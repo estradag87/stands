@@ -16,6 +16,7 @@ const Categories = ({
   addToFurnituresResume,
   furnitures,
   furnituresResume,
+  goToChart,
 }) => (
   <div>
     <div className="showCategoiesList">
@@ -45,6 +46,7 @@ const Categories = ({
       addToFurnituresResume={addToFurnituresResume}
       furnitures={furnitures}
       furnituresResume={furnituresResume}
+      goToChart={goToChart}
     />
   </div>
 );
@@ -52,6 +54,7 @@ const Categories = ({
 const mapStateToProps = (state) => ({
   CATEGORY_LIST: state.CATEGORY_LIST,
   selectedCategories: state.selectedCategories,
+  goToChart: state.goToChart,
 });
 
 const mapDispatchToProps = (dispatch) => ({

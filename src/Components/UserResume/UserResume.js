@@ -9,6 +9,7 @@ import Resume from "../Resume/Resume";
 import AddFurniture from "../AddFurniture";
 import { FURNITURES } from "../../constants/index";
 import base, { firebaseApp } from "../../base";
+import NavBar from "../Home/NavBar";
 
 class UserResume extends React.Component {
   state = {
@@ -54,6 +55,11 @@ class UserResume extends React.Component {
   // componentWillUnmount() {
   //   base.removeBinding(this.ref);
   // }
+
+  goToChart = (event) => {
+    event.preventDefault();
+    this.props.history.push(`/resume`);
+  };
 
   addNewFurniture = (furnitureNew) => {
     console.log("------------", furnitureNew);
@@ -117,7 +123,7 @@ class UserResume extends React.Component {
   render() {
     return (
       <div>
-        <Home />
+        <NavBar />
         <div className="form-wrapper">
           <Area changeArea={this.changeArea} areaId={this.state.areaId} />
           <Products
@@ -132,8 +138,9 @@ class UserResume extends React.Component {
             subtractToFurnituresResume={this.subtractToFurnituresResume}
             furnitures={this.state.furnitures}
             furnituresResume={this.state.furnituresResume}
+            goToChart={this.goToChart}
           />
-          <button onClick={this.infoToBase}>COTIZAR</button>
+          {/* <button onClick={(this.infoToBase, this.goToChart)}>COTIZAR</button> */}
           {/* <Resume
             nombreDeLaEmpresa={this.state.nombreDeLaEmpresa}
             areaId={this.state.areaId}
@@ -145,10 +152,10 @@ class UserResume extends React.Component {
             furnituresResume={this.state.furnituresResume}
             AddToFurnituresResume={this.AddToFurnituresResume}
           /> */}
-
+          {/* 
           <AddFurniture
             addNewFurniture={this.addNewFurniture}
-            loadSampleFurniture={this.loadSampleFurniture}
+            loadSampleFurniture={this.loadSampleFurniture} */}
           />
         </div>
       </div>

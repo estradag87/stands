@@ -1,12 +1,12 @@
 import React from "react";
-import Home from "../Home/Home";
 import Resume from "../Resume/Resume";
+import NavBar from "../Home/NavBar";
 
 class Chart extends React.Component {
   render() {
     return (
       <div>
-        <Home />
+        <NavBar />
         <div className="form-wrapper"></div>
         <Resume />
       </div>

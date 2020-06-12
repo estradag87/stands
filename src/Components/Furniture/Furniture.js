@@ -5,6 +5,11 @@ import Categories from "../Categories/Categories";
 import { ADD_PRODUCT_QUANTITY } from "../../constants";
 import { REST_PRODUCT_QUANTITY } from "../../constants";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+// const goToChart = (props) => props.history.push(`/resume`);
 
 const Furniture = ({
   FURNITURES,
@@ -13,8 +18,45 @@ const Furniture = ({
   addProductQuantity,
   furnituresResume,
   restProductQuantity,
+  areaId,
+  wallId,
+  floorId,
+  // goToChart,
 }) => {
-  console.log(furnituresResume);
+  const history = useHistory();
+  toast.configure();
+  const goToChart = () => {
+    if (areaId === "") {
+      toast.warning("Selecciona un area para tu stand", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    }
+    if (wallId === "") {
+      toast.warning("Selecciona un tipo stand", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    }
+    if (floorId === "") {
+      toast.warning("Selecciona un tipo de piso", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    }
+    if (Object.keys(furnituresResume).length === 0) {
+      toast.warning("Selecciona nuestros productos del mobiliario", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    }
+    if (
+      areaId !== "" &&
+      wallId !== "" &&
+      floorId !== "" &&
+      Object.keys(furnituresResume).length > 0
+    ) {
+      history.push(`/resume`);
+    }
+    return;
+  };
+  console.log(history);
   return (
     <div clasName="section4">
       <div className="showFurnitureList">
@@ -53,6 +95,7 @@ const Furniture = ({
           </Row>
         </ul>
       </div>
+      <button onClick={goToChart}>COTIZAR 2</button>
     </div>
   );
 };
@@ -62,6 +105,9 @@ const mapStateToProps = (state) => ({
   selectedCategories: state.selectedCategories,
   FURNITURES: state.FURNITURES,
   furnituresResume: state.furnituresResume,
+  areaId: state.areaId,
+  wallId: state.wallId,
+  floorId: state.floorId,
 });
 
 const mapDispatchToProps = (dispatch) => ({
