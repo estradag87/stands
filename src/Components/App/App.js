@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css";
 import Home from "../Home/Home";
 import Form from "../Form/Form";
+import Nosotros from "../Home/Nosotros";
+import Proyectos from "../Home/Proyectos";
 
 class App extends React.Component {
   state = {
@@ -40,6 +42,8 @@ class App extends React.Component {
             match={this.props.match}
           />
         </div>
+        <Nosotros />
+        <Proyectos />
       </div>
     );
   }

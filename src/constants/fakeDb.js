@@ -155,3 +155,30 @@ export const FLOOR_OPTIONS = [
     name: "OSCURO",
   },
 ];
+
+export const TEAM = [
+  {
+    id: "daniel",
+    image: "/FotosTeam/daniel.jpg",
+    name: "DANIEL ESTRADA",
+    roll: "Administrador",
+    description:
+      "Daniel es un administrador de empresas, con más de 7 años en la dirección de producto y gerencia de proyectos, ademas de esto es artista visual, lo cual le ha permitido tener un efoque muy estetico y artistico en el diseño stands",
+  },
+  {
+    id: "catalina",
+    image: "/FotosTeam/catalina.jpg",
+    name: "CATALINA ESTRADA",
+    roll: "Diseñadora de espacios",
+    description:
+      "Catalina es una apasionada por el diseño y la buena adecuación de los espacios, con más de 10 años en la indistria de la remoldeación de espacios comerciales y en el diseño de stands comerciales para ferias",
+  },
+  {
+    id: "ana",
+    image: "/FotosTeam/ana.jpg",
+    name: "ANA MARÍA GÓMEZ",
+    roll: "Arquitecta",
+    description:
+      "DAna María es una arquitecta con una larga trayectoria en el diseño y la construcción de espacios comerciales ",
+  },
+];

@@ -7,8 +7,9 @@ class Chart extends React.Component {
     return (
       <div>
         <NavBar />
-        <div className="form-wrapper"></div>
-        <Resume />
+        <div className="form-wrapper-resume">
+          <Resume />
+        </div>
       </div>
     );
   }

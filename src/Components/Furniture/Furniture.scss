@@ -44,4 +44,44 @@
 
     margin-left: 70px;
   }
+
+  .addQuantitySection {
+    display: inline-flex;
+    font-weight: 700;
+    margin: 10px;
+  }
+
+  .buttonQuantityAdd {
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    font-size: 30px;
+    background-color: rgba(237, 205, 31, 1);
+    color: white;
+    font-weight: 1000;
+    box-shadow: -2px 3px 8px 1px rgba(0, 0, 0, 0.4);
+    border: transparent;
+    width: 30px;
+    z-index: 10;
+  }
+
+  .buttonQuantityRest {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    font-size: 30px;
+    background-color: rgba(237, 205, 31, 1);
+    color: white;
+    font-weight: 1000;
+    box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 0.4);
+    border: transparent;
+    width: 30px;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .quantity {
+    text-align: center;
+    background-color: #dddddd;
+    width: 50px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.4);
+  }
 }

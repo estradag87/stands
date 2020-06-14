@@ -88,10 +88,15 @@ class Form extends React.Component {
     const { errors } = this.props;
     return (
       <div className="section2">
-        <button onClick={this.showFormModifyYourStand}>
+        <button className="buttonTopForm" onClick={this.showFormNewStand}>
+          Crea tu nuevo stand
+        </button>
+        <button
+          className="buttonTopForm"
+          onClick={this.showFormModifyYourStand}
+        >
           Modifica tu stand
         </button>
-        <button onClick={this.showFormNewStand}>Crea tu nuevo stand</button>
         {this.state.showModifyYourStand && (
           <div>
             <h3 className="startInfo">
@@ -119,7 +124,9 @@ class Form extends React.Component {
                 </h4>
               </div>
               <div className="submit">
-                <Button type="submit">Modificar</Button>
+                <Button className="submitButton" type="submit">
+                  Modificar
+                </Button>
               </div>
             </form>
           </div>
@@ -223,7 +230,9 @@ class Form extends React.Component {
                 </Col>
               </Row>
               <div className="submit">
-                <Button type="submit">Create</Button>
+                <Button className="submitButton" type="submit">
+                  Create
+                </Button>
               </div>
             </form>
           </div>

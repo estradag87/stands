@@ -78,24 +78,32 @@ const Furniture = ({
                     </div>
                     <div className="name">{dbFurnitures[item].name}</div>
                     <div className="price">${dbFurnitures[item].price} USD</div>
-                    <button
-                      onClick={() => addProductQuantity(dbFurnitures[item].id)}
-                    >
-                      +
-                    </button>
-                    <div className="quantity">{furnituresResume[item]}</div>
-                    <button
-                      onClick={() => restProductQuantity(dbFurnitures[item].id)}
-                    >
-                      -
-                    </button>
+                    <div className="addQuantitySection">
+                      <button
+                        className="buttonQuantityAdd"
+                        onClick={() =>
+                          addProductQuantity(dbFurnitures[item].id)
+                        }
+                      >
+                        +
+                      </button>
+                      <div className="quantity">{furnituresResume[item]}</div>
+                      <button
+                        className="buttonQuantityRest"
+                        onClick={() =>
+                          restProductQuantity(dbFurnitures[item].id)
+                        }
+                      >
+                        -
+                      </button>
+                    </div>
                   </li>
                 </Col>
               ))}
           </Row>
         </ul>
       </div>
-      <button onClick={goToChart}>COTIZAR 2</button>
+      <button onClick={goToChart}>COTIZAR</button>
     </div>
   );
 };
