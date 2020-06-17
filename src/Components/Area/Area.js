@@ -5,9 +5,6 @@ import { AREA_LIST } from "../../constants";
 import { connect } from "react-redux";
 
 const Area = ({ AREA_LIST, chooseAre, areaId }) => (
-  // class Area extends React.Component {
-  //   render() {
-  //     return (
   <div>
     <h3 className="areaSelection">SELECCIONA EL AREA DE TU STAND</h3>
     <ul className="displayArea">
