@@ -147,12 +147,12 @@ export const FLOOR_OPTIONS = [
   {
     id: "pisoClaro",
     image: "/FotosPisos/claro.jpg",
-    name: "CLARO",
+    name: "Claro",
   },
   {
     id: "pisoOscuro",
     image: "/FotosPisos/oscuro.jpg",
-    name: "OSCURO",
+    name: "Oscuro",
   },
 ];
 

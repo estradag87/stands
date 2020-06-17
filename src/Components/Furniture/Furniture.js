@@ -5,9 +5,10 @@ import Categories from "../Categories/Categories";
 import { ADD_PRODUCT_QUANTITY } from "../../constants";
 import { REST_PRODUCT_QUANTITY } from "../../constants";
 import { connect } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams, useRouteMatch } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import base, { firebaseApp } from "../../base";
 
 // const goToChart = (props) => props.history.push(`/resume`);
 
@@ -57,6 +58,17 @@ const Furniture = ({
     return;
   };
   console.log(history);
+
+  const params = useParams();
+  const infoToBase = () => {
+    firebaseApp.database().ref(params.nombreDeLaEmpresa).set({
+      Area: areaId,
+      Walls: wallId,
+      Floor: floorId,
+      FurnituresSelected: furnituresResume,
+    });
+  };
+
   return (
     <div clasName="section4">
       <div className="showFurnitureList">
@@ -80,21 +92,21 @@ const Furniture = ({
                     <div className="price">${dbFurnitures[item].price} USD</div>
                     <div className="addQuantitySection">
                       <button
-                        className="buttonQuantityAdd"
-                        onClick={() =>
-                          addProductQuantity(dbFurnitures[item].id)
-                        }
-                      >
-                        +
-                      </button>
-                      <div className="quantity">{furnituresResume[item]}</div>
-                      <button
                         className="buttonQuantityRest"
                         onClick={() =>
                           restProductQuantity(dbFurnitures[item].id)
                         }
                       >
                         -
+                      </button>
+                      <div className="quantity">{furnituresResume[item]}</div>
+                      <button
+                        className="buttonQuantityAdd"
+                        onClick={() =>
+                          addProductQuantity(dbFurnitures[item].id)
+                        }
+                      >
+                        +
                       </button>
                     </div>
                   </li>
@@ -103,7 +115,14 @@ const Furniture = ({
           </Row>
         </ul>
       </div>
-      <button onClick={goToChart}>COTIZAR</button>
+      <button
+        onClick={() => {
+          goToChart();
+          infoToBase();
+        }}
+      >
+        COTIZAR
+      </button>
     </div>
   );
 };

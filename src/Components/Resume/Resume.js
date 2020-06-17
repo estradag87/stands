@@ -8,12 +8,16 @@ import {
 } from "../../constants";
 import { connect } from "react-redux";
 import NavBar from "../Home/NavBar";
+import { ADD_PRODUCT_QUANTITY } from "../../constants";
+import { REST_PRODUCT_QUANTITY } from "../../constants";
+import Table from "react-bootstrap/Table";
 
 const Resume = ({
   FURNITURES,
   selectedCategories,
   dbFurnitures,
   addProductQuantity,
+  restProductQuantity,
   furnituresResume,
   AREA_LIST,
   areaId,
@@ -34,59 +38,141 @@ const Resume = ({
   }
 
   return (
-    <div>
+    <div className="tableStyle">
       <h2>RESUMEN DE TU STAND</h2>
       {/* <h3>{this.props.nombreDeLaEmpresa}</h3> */}
+      <div className="tableinfo">
+        <Table responsive="sm">
+          <thead>
+            <tr className="tableTittles">
+              <th colspan="4">DETALLE DE TU STAND</th>
+              <th>COSTO TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="tableDetails">
+              <td colspan="4">
+                {AREA_LIST.filter((area) => areaId === area.id).map((item) => (
+                  <p key={item.id}>
+                    Como es el tamaño de tu stand:{" "}
+                    <span className="specifications">{item.size} metros</span>
+                  </p>
+                ))}
+              </td>
+              <td></td>
+            </tr>
+            <tr className="tableDetails">
+              <td colspan="4">
+                {WALL_LISTS.filter((wall) => wallId === wall.id).map((item) => (
+                  <p key={item.id}>
+                    Como es la forma de tu stand:{" "}
+                    <span className="specifications">{item.name}</span>
+                  </p>
+                ))}
+              </td>
+              <td></td>
+            </tr>
+            <tr className="tableDetails">
+              <td colspan="4">
+                {FLOOR_OPTIONS.filter((floor) => floorId === floor.id).map(
+                  (item) => (
+                    <p key={item.id}>
+                      El color del piso de tu stand es:{" "}
+                      <span className="specifications">{item.name}</span>
+                    </p>
+                  )
+                )}
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="5">
+                <ul>
+                  {AREA_LIST.filter((area) => areaId === area.id).map(
+                    (item) => (
+                      <li className="priceResume" key={item.id}>
+                        <div className="price">{item.Price}</div>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </td>
+            </tr>
+            <tr className="tableTittles">
+              <td>PRODUCTO</td>
+              <td>FOTO</td>
+              <td>COSTO UNITARIO</td>
+              <td>CANTIDAD</td>
+              <td>COSTO TOTAL</td>
+            </tr>
 
-      <div className="displayArea">
-        <ul>
-          {AREA_LIST.filter((area) => areaId === area.id).map((item) => (
-            <li className="showFurniture" key={item.id}>
-              <div className="sizeNumber">{item.size}</div>
-              <div className="size">metros</div>
-              <div className="price">{item.Price}</div>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="displayWalls">
-        {WALL_LISTS.filter((wall) => wallId === wall.id).map((item) => (
-          <h4 className="nameWall" key={item.id}>
-            {item.name}
-          </h4>
-        ))}
-      </div>
-      <div className="displayFloor">
-        {FLOOR_OPTIONS.filter((floor) => floorId === floor.id).map((item) => (
-          <h4 className="nameFloor" key={item.id}>
-            {item.name}
-          </h4>
-        ))}
-      </div>
-      <div className="displayFurniture">
-        <ul>
-          {Object.keys(furnituresResume)
-            .filter((xax) => {
-              return furnituresResume[xax] >= 1;
-            })
-            .map((item) => (
-              <li className="showFurniture" key={dbFurnitures[item].id}>
-                <div className="showImage">
-                  <img className="image" src={dbFurnitures[item].image} />
+            {Object.keys(furnituresResume)
+              .filter((xax) => {
+                return furnituresResume[xax] >= 1;
+              })
+              .map((item) => (
+                <tr>
+                  <td className="furnitureDetail" key={dbFurnitures[item].id}>
+                    {dbFurnitures[item].name}
+                  </td>
+                  <td>
+                    {" "}
+                    <p className="showFurniture" key={dbFurnitures[item].id}>
+                      <div className="showImage">
+                        <img className="image" src={dbFurnitures[item].image} />
+                      </div>
+                    </p>
+                  </td>
+                  <td className="furnitureDetail" key={dbFurnitures[item].id}>
+                    ${dbFurnitures[item].price}USD
+                  </td>
+                  <td className="furnitureDetail" key={dbFurnitures[item].id}>
+                    <div className="addQuantitySection">
+                      <button
+                        className="buttonQuantityRest"
+                        onClick={() =>
+                          restProductQuantity(dbFurnitures[item].id)
+                        }
+                      >
+                        -
+                      </button>
+                      <div className="quantity">{furnituresResume[item]}</div>
+                      <button
+                        className="buttonQuantityAdd"
+                        onClick={() =>
+                          addProductQuantity(dbFurnitures[item].id)
+                        }
+                      >
+                        +
+                      </button>
+                    </div>
+                  </td>
+                  <td
+                    className="priceResumeFurniture"
+                    key={dbFurnitures[item].id}
+                  >
+                    ${dbFurnitures[item].price * (furnituresResume[item] || 0)}
+                    USD
+                  </td>
+                </tr>
+              ))}
+
+            <tr className="tableTittlesTotal">
+              <td colspan="3"></td>
+              <td>VALOR TOTAL</td>
+              <td>
+                <div className="total">
+                  {Object.keys(furnituresResume).reduce((prevTotal, item) => {
+                    return (
+                      prevTotal +
+                      dbFurnitures[item].price * furnituresResume[item]
+                    );
+                  }, sumArea)}
                 </div>
-                <div className="name">{dbFurnitures[item].name}</div>
-                <div className="quantity">{furnituresResume[item]}</div>
-                <div className="SumFurniture">
-                  {dbFurnitures[item].price * (furnituresResume[item] || 0)}
-                </div>
-              </li>
-            ))}
-        </ul>
-      </div>
-      <div className="total">
-        {Object.keys(furnituresResume).reduce((prevTotal, item) => {
-          return prevTotal + dbFurnitures[item].price * furnituresResume[item];
-        }, sumArea)}
+              </td>
+            </tr>
+          </tbody>
+        </Table>
       </div>
     </div>
   );
@@ -109,6 +195,18 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch({
       type: "CHOOSE_AREA",
       area,
+    });
+  },
+  addProductQuantity(productId) {
+    dispatch({
+      type: ADD_PRODUCT_QUANTITY,
+      productId,
+    });
+  },
+  restProductQuantity(productId) {
+    dispatch({
+      type: REST_PRODUCT_QUANTITY,
+      productId,
     });
   },
 });
