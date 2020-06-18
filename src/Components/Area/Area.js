@@ -33,8 +33,6 @@ const Area = ({ AREA_LIST, chooseAre, areaId }) => (
     </ul>
   </div>
 );
-//   }
-// }
 
 const mapStateToProps = (state) => ({
   AREA_LIST: state.AREA_LIST,

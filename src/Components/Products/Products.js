@@ -1,7 +1,7 @@
 import React from "react";
 import "./Products.scss";
 import { Row, Col } from "react-bootstrap";
-import { WALL_LISTS, FLOOR_OPTIONS } from "../../constants";
+
 import { connect } from "react-redux";
 
 const Products = ({
@@ -12,9 +12,6 @@ const Products = ({
   changeFloor,
   floorId,
 }) => (
-  // class Products extends React.Component {
-  //   render() {
-  //     return (
   <div className="section3">
     <div className="walls">
       <h3 className="standTipe">CUENTANOS CÓMO ES TU STAND</h3>

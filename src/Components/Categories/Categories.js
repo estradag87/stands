@@ -5,9 +5,6 @@ import Furniture from "../Furniture/Furniture";
 import { CHANGE_CATEGORY } from "../../constants";
 import { connect } from "react-redux";
 
-// const x = { a: 1 }
-// const { a } = x -> x.a -> 1
-
 const Categories = ({
   CATEGORY_LIST,
   changeCategory,

@@ -1,20 +1,12 @@
 import React from "react";
 import "./Resume.scss";
-import {
-  AREA_LIST,
-  WALL_LISTS,
-  FLOOR_OPTIONS,
-  FURNITURES,
-} from "../../constants";
 import { connect } from "react-redux";
-import NavBar from "../Home/NavBar";
+
 import { ADD_PRODUCT_QUANTITY } from "../../constants";
 import { REST_PRODUCT_QUANTITY } from "../../constants";
 import Table from "react-bootstrap/Table";
 
 const Resume = ({
-  FURNITURES,
-  selectedCategories,
   dbFurnitures,
   addProductQuantity,
   restProductQuantity,
@@ -40,7 +32,7 @@ const Resume = ({
   return (
     <div className="tableStyle">
       <h2>RESUMEN DE TU STAND</h2>
-      {/* <h3>{this.props.nombreDeLaEmpresa}</h3> */}
+
       <div className="tableinfo">
         <Table responsive="sm">
           <thead>

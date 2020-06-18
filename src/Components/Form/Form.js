@@ -61,9 +61,9 @@ class Form extends React.Component {
   goToNewCompany = (event) => {
     event.preventDefault();
     const companyName = this.myInput.current.value;
-    console.log(this.props.history);
+
     this.props.history.push(`/company/${companyName}${uuidv4()}`);
-    console.log(companyName);
+
     if (validateForm(this.props.errors)) {
       console.info("Valid Form");
     } else {
@@ -74,9 +74,9 @@ class Form extends React.Component {
   goToCompany = (event) => {
     event.preventDefault();
     const companyCode = this.myInput.current.value;
-    console.log(this.props.history);
+
     this.props.history.push(`/company/${companyCode}`);
-    console.log(companyCode);
+
     if (validateForm(this.props.errors)) {
       console.info("Valid Form");
     } else {

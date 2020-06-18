@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Furniture.scss";
-import { Row, Col, Button, Form } from "react-bootstrap";
-import Categories from "../Categories/Categories";
+import { Row, Col } from "react-bootstrap";
 import { ADD_PRODUCT_QUANTITY } from "../../constants";
 import { REST_PRODUCT_QUANTITY } from "../../constants";
 import { connect } from "react-redux";
-import { useHistory, useParams, useRouteMatch } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import base, { firebaseApp } from "../../base";
-
-// const goToChart = (props) => props.history.push(`/resume`);
+import { firebaseApp } from "../../base";
 
 const Furniture = ({
   FURNITURES,
@@ -22,7 +19,6 @@ const Furniture = ({
   areaId,
   wallId,
   floorId,
-  // goToChart,
 }) => {
   const history = useHistory();
   toast.configure();
@@ -57,7 +53,6 @@ const Furniture = ({
     }
     return;
   };
-  console.log(history);
 
   const params = useParams();
   const infoToBase = () => {
@@ -72,7 +67,6 @@ const Furniture = ({
   return (
     <div clasName="section4">
       <div className="showFurnitureList">
-        {/* <h3 className="categorydisplay">{this.props.categoryChoosen}</h3> */}
         <ul>
           <Row className="justify-content-lg-center">
             {Object.keys(dbFurnitures)
