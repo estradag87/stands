@@ -1,163 +1,155 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Furniture.scss";
 import { Row, Col, Button, Form } from "react-bootstrap";
 import Categories from "../Categories/Categories";
+import { ADD_PRODUCT_QUANTITY } from "../../constants";
+import { REST_PRODUCT_QUANTITY } from "../../constants";
+import { connect } from "react-redux";
+import { useHistory, useParams, useRouteMatch } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import base, { firebaseApp } from "../../base";
 
-const Furnitures = [
-  {
-    id: "mesa1",
-    image:
-      "https://static.wixstatic.com/media/8a7656_f7230551df5f469ca2eced3015fec46d~mv2.png/v1/fill/w_160,h_122,al_c,q_85,usm_0.66_1.00_0.01/Captura%20de%20pantalla%202020-02-29%20a%20las%207_4.webp",
-    name: "Escritorio Madera",
-    price: 100,
-    category: "Mesas",
-    quantity: 1,
-  },
-  {
-    id: "mesa2",
-    image:
-      "https://static.wixstatic.com/media/8a7656_05adf208278e4d6d980253b41d2fa018~mv2.png/v1/fill/w_123,h_122,al_c,q_85,usm_0.66_1.00_0.01/Captura%20de%20pantalla%202020-02-29%20a%20las%207_4.webp",
-    name: "Escritorio Blanco",
-    price: 120,
-    category: "Mesas",
-    quantity: 1,
-  },
-  {
-    id: "mesa3",
-    image:
-      "https://static.wixstatic.com/media/8a7656_b50375255f3448db856fa0235b3f72e7~mv2.png/v1/fill/w_127,h_117,al_c,q_85,usm_0.66_1.00_0.01/Captura%20de%20pantalla%202020-02-29%20a%20las%207_3.webp",
-    name: "Mesa Redonda",
-    price: 80,
-    category: "Mesas",
-    quantity: 1,
-  },
-  {
-    id: "silla1",
-    image:
-      "https://static.wixstatic.com/media/8a7656_4a5bcc296c174e78983892460b58e5c4~mv2.png/v1/fill/w_99,h_128,al_c,q_85,usm_0.66_1.00_0.01/Captura%20de%20pantalla%202020-02-29%20a%20las%207_4.webp",
-    name: "Silla Blanca",
-    price: 20,
-    category: "Sillas",
-    quantity: 1,
-  },
-  {
-    id: "silla2",
-    image:
-      "https://static.wixstatic.com/media/8a7656_28f3ca61f0644c39af47ab7a38991c72~mv2.png/v1/fill/w_78,h_128,al_c,q_85,usm_0.66_1.00_0.01/Captura%20de%20pantalla%202020-02-29%20a%20las%207_4.webp",
-    name: "Butaco Bajito",
-    price: 15,
-    category: "Sillas",
-    quantity: 1,
-  },
-  {
-    id: "silla3",
-    image:
-      "https://static.wixstatic.com/media/8a7656_ada04509174a415c849b5e23404eed87~mv2.png/v1/fill/w_140,h_186,al_c,q_85,usm_0.66_1.00_0.01/Captura%20de%20pantalla%202020-02-29%20a%20las%207_4.webp",
-    name: "Taurete Blanco",
-    price: 25,
-    category: "Sillas",
-    quantity: 1,
-  },
-  {
-    id: "exhibidor1",
-    image:
-      "https://static.wixstatic.com/media/8a7656_0dab4ceaaa3e4a2098034a758e08c57c~mv2.png/v1/fill/w_93,h_108,al_c,q_85,usm_0.66_1.00_0.01/Captura%20de%20pantalla%202020-02-29%20a%20las%207_4.webp",
-    name: "Cajonera",
-    price: 20,
-    category: "Exhibidores",
-    quantity: 1,
-  },
-  {
-    id: "exhibidor2",
-    image:
-      "https://static.wixstatic.com/media/8a7656_b9a2fb9f892e4d7f918c499f86a2ac02~mv2.png/v1/fill/w_138,h_128,al_c,q_85,usm_0.66_1.00_0.01/Captura%20de%20pantalla%202020-02-29%20a%20las%207_4.webp",
-    name: "Rack",
-    price: 25,
-    category: "Exhibidores",
-    quantity: 1,
-  },
-  {
-    id: "exhibidor3",
-    image:
-      "https://static.wixstatic.com/media/8a7656_b8afb341db5840dd95d31b93d847fddf~mv2.png/v1/fill/w_64,h_128,al_c,q_85,usm_0.66_1.00_0.01/Captura%20de%20pantalla%202020-02-29%20a%20las%207_4.webp",
-    name: "Gondola",
-    price: 18,
-    category: "Exhibidores",
-    quantity: 1,
-  },
-  {
-    id: "decoracion1",
-    image:
-      "https://static.wixstatic.com/media/8a7656_85245615480c4cde8264ba74972cb71d~mv2.png/v1/fill/w_144,h_139,al_c,q_85,usm_0.66_1.00_0.01/Captura%20de%20pantalla%202020-02-29%20a%20las%207_4.webp",
-    name: "Matas",
-    price: 5,
-    category: "Decoración",
-    quantity: 1,
-  },
-];
+// const goToChart = (props) => props.history.push(`/resume`);
 
-class Furniture extends React.Component {
-  constructor(props) {
-    super(props);
+const Furniture = ({
+  FURNITURES,
+  selectedCategories,
+  dbFurnitures,
+  addProductQuantity,
+  furnituresResume,
+  restProductQuantity,
+  areaId,
+  wallId,
+  floorId,
+  // goToChart,
+}) => {
+  const history = useHistory();
+  toast.configure();
+  const goToChart = () => {
+    if (areaId === "") {
+      toast.warning("Selecciona un area para tu stand", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    }
+    if (wallId === "") {
+      toast.warning("Selecciona un tipo stand", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    }
+    if (floorId === "") {
+      toast.warning("Selecciona un tipo de piso", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    }
+    if (Object.keys(furnituresResume).length === 0) {
+      toast.warning("Selecciona nuestros productos del mobiliario", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    }
+    if (
+      areaId !== "" &&
+      wallId !== "" &&
+      floorId !== "" &&
+      Object.keys(furnituresResume).length > 0
+    ) {
+      history.push(`/resume`);
+    }
+    return;
+  };
+  console.log(history);
 
-    this.state = { quantity: 0 };
+  const params = useParams();
+  const infoToBase = () => {
+    firebaseApp.database().ref(params.nombreDeLaEmpresa).set({
+      Area: areaId,
+      Walls: wallId,
+      Floor: floorId,
+      FurnituresSelected: furnituresResume,
+    });
+  };
 
-    this.changeQuantity = this.changeQuantity.bind(this);
-  }
-  changeQuantity(e, itemId) {
-    console.log(e);
-    this.setState({ [itemId]: e.target.value });
-  }
-
-  render() {
-    console.log("{{{{{", this.props);
-    return (
-      <div clasName="section4">
-        <div className="showFurnitureList">
-          <h3 className="categorydisplay">{this.props.categoryChoosen}</h3>
-          <ul>
-            <Row className="justify-content-lg-center">
-              {Furnitures.filter(
-                (Furniture) => Furniture.category === this.props.categoryChoosen
-              ).map((item) => (
+  return (
+    <div clasName="section4">
+      <div className="showFurnitureList">
+        {/* <h3 className="categorydisplay">{this.props.categoryChoosen}</h3> */}
+        <ul>
+          <Row className="justify-content-lg-center">
+            {Object.keys(dbFurnitures)
+              .filter((furniture) => {
+                return (
+                  selectedCategories &&
+                  selectedCategories.includes(dbFurnitures[furniture].category)
+                );
+              })
+              .map((item) => (
                 <Col lg={3} md={3} sm={12} xs={12}>
-                  <li className="showFurniture" key={item.id}>
+                  <li className="showFurniture" key={dbFurnitures[item].id}>
                     <div className="showImage">
-                      <img className="image" src={item.image} />
+                      <img className="image" src={dbFurnitures[item].image} />
                     </div>
-                    <div className="name">{item.name}</div>
-                    <div className="price">${item.price} USD</div>
-                    <form>
-                      <Form.Group
-                        controlId="exampleForm.ControlSelect1"
-                        className="selection"
+                    <div className="name">{dbFurnitures[item].name}</div>
+                    <div className="price">${dbFurnitures[item].price} USD</div>
+                    <div className="addQuantitySection">
+                      <button
+                        className="buttonQuantityRest"
+                        onClick={() =>
+                          restProductQuantity(dbFurnitures[item].id)
+                        }
                       >
-                        <Form.Label>Cantidad</Form.Label>
-                        <Form.Control
-                          as="select"
-                          onChange={(e) => this.changeQuantity(e, item.id)}
-                        >
-                          <option>---</option>
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </Form.Control>
-                      </Form.Group>
-                    </form>
-                    <div className="SumFurniture">
-                      {item.price * (this.state[item.id] || 0)}
+                        -
+                      </button>
+                      <div className="quantity">{furnituresResume[item]}</div>
+                      <button
+                        className="buttonQuantityAdd"
+                        onClick={() =>
+                          addProductQuantity(dbFurnitures[item].id)
+                        }
+                      >
+                        +
+                      </button>
                     </div>
                   </li>
                 </Col>
               ))}
-            </Row>
-          </ul>
-        </div>
+          </Row>
+        </ul>
       </div>
-    );
-  }
-}
+      <button
+        onClick={() => {
+          goToChart();
+          infoToBase();
+        }}
+      >
+        COTIZAR
+      </button>
+    </div>
+  );
+};
 
-export default Furniture;
+const mapStateToProps = (state) => ({
+  dbFurnitures: state.dbFurnitures,
+  selectedCategories: state.selectedCategories,
+  FURNITURES: state.FURNITURES,
+  furnituresResume: state.furnituresResume,
+  areaId: state.areaId,
+  wallId: state.wallId,
+  floorId: state.floorId,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  addProductQuantity(productId) {
+    dispatch({
+      type: ADD_PRODUCT_QUANTITY,
+      productId,
+    });
+  },
+  restProductQuantity(productId) {
+    dispatch({
+      type: REST_PRODUCT_QUANTITY,
+      productId,
+    });
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Furniture);

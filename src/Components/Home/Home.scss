@@ -119,3 +119,51 @@ h2 {
   --animate-duration: 1.5s;
   display: unset;
 }
+
+.imageTeam {
+  border-radius: 150px;
+  width: 300px;
+  filter: grayscale(100%);
+  margin: 30px;
+}
+
+.nameTeam {
+  color: rgba(237, 205, 31, 1);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 70px;
+  padding: 10px;
+}
+
+.rollTeam {
+  font-size: 30px;
+  color: #c6c6c6;
+  font-weight: 700;
+}
+
+.descriptionTeam {
+  margin: 10px 70px;
+  text-align: center;
+}
+
+.teamElements {
+  display: none;
+}
+
+.imageProyectos {
+  display: inline-flex;
+}
+
+.stand1 {
+  height: 650px;
+  margin: 10px;
+}
+
+.stand2 {
+  height: 650px;
+  margin: 10px;
+}
+
+.displayProyectos {
+  padding: 50px;
+}
