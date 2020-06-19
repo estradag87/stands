@@ -3,16 +3,6 @@
   overflow: hidden;
 }
 
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: right;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 20px 20px;
-  text-decoration: none;
-  font-size: 20px;
-}
-
 /* Change the color of links on hover */
 .topnav a:hover {
   background-color: #ddd;
@@ -25,90 +15,8 @@
   color: #333;
 }
 
-.logoBanner {
-  background-color: rgba(237, 205, 31, 1);
-  padding: 35px 100px;
-  float: left;
-}
-
-.mensaje {
-  text-align: center;
-  padding: 20px;
-  font-size: 50px;
-  color: #c6c6c6;
-  line-height: 45px;
-}
-
-.negrillaMensaje {
-  font-weight: 700;
-  font-size: 63px;
-  color: #888787;
-}
-
-.imagenHome {
-  width: 85%;
-  display: block;
-  margin: auto;
-}
-
-h3 {
-  font-size: 35px;
-  color: #333;
-}
-
-.BuiltYourOwnStand {
-  padding-top: 45px;
-  font-size: 20px;
-  color: #333;
-}
-
-.yellowBar {
-  background-color: rgba(237, 205, 31, 1);
-  padding: 5px 10px;
-  margin: 30px 700px;
-}
-
-h2 {
-  font-size: 80px;
-  color: #c6c6c6;
-  font-weight: 700;
-  line-height: 70px;
-}
-
-.banner {
-  background-color: rgba(237, 205, 31, 1);
-}
-
 .standAlone {
   position: relative;
-}
-
-.standFull {
-  position: absolute;
-  top: 240px;
-  right: 100px;
-}
-
-.textFirst {
-  position: absolute;
-  top: 200px;
-  left: 100px;
-  color: white;
-  text-align: left;
-  font-size: 60px;
-  font-weight: 100;
-  line-height: 50px;
-}
-
-.textSecond {
-  position: absolute;
-  top: 280px;
-  left: -60px;
-  color: #888787;
-  text-align: left;
-  font-size: 60px;
-  font-weight: 700;
-  line-height: 50px;
 }
 
 .standFull {
@@ -120,50 +28,529 @@ h2 {
   display: unset;
 }
 
-.imageTeam {
-  border-radius: 150px;
-  width: 300px;
-  filter: grayscale(100%);
-  margin: 30px;
-}
-
-.nameTeam {
-  color: rgba(237, 205, 31, 1);
-  font-size: 40px;
-  font-weight: 700;
-  line-height: 70px;
-  padding: 10px;
-}
-
-.rollTeam {
-  font-size: 30px;
-  color: #c6c6c6;
-  font-weight: 700;
-}
-
-.descriptionTeam {
-  margin: 10px 70px;
-  text-align: center;
+.animate__animated.animate__backInLeft {
+  --animate-duration: 1.5s;
+  display: inline-block;
 }
 
 .teamElements {
   display: none;
 }
 
-.imageProyectos {
-  display: inline-flex;
+@media (max-width: 767px) {
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 2vw;
+    text-decoration: none;
+    font-size: 2vw;
+  }
+
+  .mensaje {
+    text-align: center;
+    padding: 3vw;
+    font-size: 4vw;
+    color: #a8a7a7;
+  }
+
+  .negrillaMensaje {
+    font-weight: 700;
+    font-size: 5vw;
+    color: #888787;
+    line-height: 5vw;
+  }
+  h3 {
+    font-size: 1vw;
+    color: #333;
+  }
+
+  h4 {
+    font-size: 3vw;
+    color: #333;
+    padding: 2vw 2vw 2vw 0;
+  }
+
+  h2 {
+    padding-top: 8vw;
+    font-size: 6vw;
+    color: #c6c6c6;
+    font-weight: 700;
+    line-height: 1vw;
+  }
+  .yellowBar {
+    background-color: rgba(237, 205, 31, 1);
+    height: 1vw;
+    width: 30vw;
+    display: inline-block;
+    margin: vw;
+  }
+  .banner {
+    background-color: rgba(237, 205, 31, 1);
+    padding: 6vw 0;
+  }
+
+  .imagenHome {
+    width: 85vw;
+    display: block;
+    margin: auto;
+  }
+
+  .standFull {
+    position: absolute;
+    top: 32vw;
+    right: 7vw;
+  }
+
+  .textFirst {
+    position: absolute;
+    top: 1vw;
+    left: 4vw;
+    color: white;
+    text-align: left;
+    font-size: 3.5vw;
+    font-weight: 100;
+    line-height: 3vw;
+  }
+
+  .textSecond {
+    position: absolute;
+    top: 8vw;
+    left: -3vw;
+    color: #888787;
+    text-align: left;
+    font-size: 3.5vw;
+    font-weight: 700;
+    line-height: 3vw;
+  }
+  .imageTeam {
+    border-radius: 150vw;
+    width: 35vw;
+    filter: grayscale(100%);
+    margin: 3vw;
+  }
+  .nameTeam {
+    color: rgba(237, 205, 31, 1);
+    font-size: 4vw;
+    font-weight: 700;
+    line-height: 2vw;
+    padding: 1vw;
+  }
+
+  .rollTeam {
+    font-size: 3vw;
+    color: #c6c6c6;
+    font-weight: 700;
+  }
+
+  .descriptionTeam {
+    margin: 1vw 20vw;
+    text-align: center;
+    font-size: 2vw;
+  }
+  .stand1 {
+    height: 40vw;
+    margin: 2vw;
+  }
+
+  .stand2 {
+    height: 50vw;
+    margin: 2vw;
+  }
+
+  .displayProyectos {
+    padding: 1vw;
+  }
+  //   .imageProyectos {
+  //     display: inline-flex;
+  // }
 }
 
-.stand1 {
-  height: 650px;
-  margin: 10px;
+@media (min-width: 768px) {
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 2vw;
+    text-decoration: none;
+    font-size: 1.5vw;
+  }
+
+  .mensaje {
+    text-align: center;
+    padding: 3vw;
+    font-size: 3vw;
+    color: #a8a7a7;
+  }
+
+  .negrillaMensaje {
+    font-weight: 700;
+    font-size: 4vw;
+    color: #888787;
+    line-height: 4vw;
+  }
+  h3 {
+    font-size: 1vw;
+    color: #333;
+  }
+
+  h4 {
+    font-size: 2vw;
+    color: #333;
+    padding: 2vw 2vw 2vw 0;
+  }
+
+  h2 {
+    padding-top: 8vw;
+    font-size: 5vw;
+    color: #c6c6c6;
+    font-weight: 700;
+    line-height: 1vw;
+  }
+  .yellowBar {
+    background-color: rgba(237, 205, 31, 1);
+    height: 1vw;
+    width: 30vw;
+    display: inline-block;
+    margin: vw;
+  }
+  .banner {
+    background-color: rgba(237, 205, 31, 1);
+    padding: 3vw 0;
+  }
+
+  .imagenHome {
+    width: 85vw;
+    display: block;
+    margin: auto;
+  }
+
+  .standFull {
+    position: absolute;
+    top: 27vw;
+    right: 7vw;
+  }
+
+  .textFirst {
+    position: absolute;
+    top: 1vw;
+    left: 4vw;
+    color: white;
+    text-align: left;
+    font-size: 3.5vw;
+    font-weight: 100;
+    line-height: 3vw;
+  }
+
+  .textSecond {
+    position: absolute;
+    top: 6vw;
+    left: -3vw;
+    color: #888787;
+    text-align: left;
+    font-size: 3.5vw;
+    font-weight: 700;
+    line-height: 3vw;
+  }
+  .imageTeam {
+    border-radius: 150vw;
+    width: 20vw;
+    filter: grayscale(100%);
+    margin: 3vw;
+  }
+  .nameTeam {
+    color: rgba(237, 205, 31, 1);
+    font-size: 2.5vw;
+    font-weight: 700;
+    line-height: 2vw;
+    padding: 1vw;
+  }
+
+  .rollTeam {
+    font-size: 2vw;
+    color: #c6c6c6;
+    font-weight: 700;
+  }
+
+  .descriptionTeam {
+    margin: 1vw 5vw;
+    text-align: center;
+    font-size: 1.5vw;
+  }
+  .stand1 {
+    height: 40vw;
+    margin: 1vw;
+  }
+
+  .stand2 {
+    height: 40vw;
+    margin: 1vw;
+  }
+
+  .displayProyectos {
+    padding: 1vw;
+  }
+  // .imageProyectos {
+  //   display: inline-flex;
+  // }
 }
 
-.stand2 {
-  height: 650px;
-  margin: 10px;
+@media (min-width: 992px) {
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 1.5vw;
+    text-decoration: none;
+    font-size: 1.5vw;
+  }
+
+  .mensaje {
+    text-align: center;
+    padding: 2vw;
+    font-size: 3vw;
+    color: #a8a7a7;
+  }
+
+  .negrillaMensaje {
+    font-weight: 700;
+    font-size: 4vw;
+    color: #888787;
+    line-height: 3vw;
+  }
+  h3 {
+    font-size: 1vw;
+    color: #333;
+  }
+
+  h4 {
+    font-size: 1.5vw;
+    color: #333;
+    padding: 2vw 2vw 2vw 0;
+  }
+
+  h2 {
+    padding-top: 5vw;
+    font-size: 4.5vw;
+    color: #c6c6c6;
+    font-weight: 700;
+    line-height: 1vw;
+  }
+  .yellowBar {
+    background-color: rgba(237, 205, 31, 1);
+    height: 1vw;
+    width: 30vw;
+    display: inline-block;
+  }
+  .banner {
+    background-color: rgba(237, 205, 31, 1);
+    padding: 2vw 0;
+  }
+
+  .imagenHome {
+    width: 85vw;
+    display: block;
+    margin: auto;
+  }
+
+  .standFull {
+    position: absolute;
+    top: 21vw;
+    right: 7vw;
+  }
+
+  .textFirst {
+    position: absolute;
+    top: 1vw;
+    left: 4vw;
+    color: white;
+    text-align: left;
+    font-size: 3.5vw;
+    font-weight: 100;
+    line-height: 3vw;
+  }
+
+  .textSecond {
+    position: absolute;
+    top: 6vw;
+    left: -3vw;
+    color: #888787;
+    text-align: left;
+    font-size: 3.5vw;
+    font-weight: 700;
+    line-height: 3vw;
+  }
+  .imageTeam {
+    border-radius: 150vw;
+    width: 20vw;
+    filter: grayscale(100%);
+    margin: 3vw;
+  }
+  .nameTeam {
+    color: rgba(237, 205, 31, 1);
+    font-size: 2.5vw;
+    font-weight: 700;
+    line-height: 2vw;
+    padding: 1vw;
+  }
+
+  .rollTeam {
+    font-size: 2vw;
+    color: #c6c6c6;
+    font-weight: 700;
+  }
+
+  .descriptionTeam {
+    margin: 1vw 5vw;
+    text-align: center;
+    font-size: 1.5vw;
+  }
+  .stand1 {
+    height: 35vw;
+    margin: 2vw;
+  }
+
+  .stand2 {
+    height: 35vw;
+    margin: 2vw;
+  }
+
+  .displayProyectos {
+    padding: 1vw;
+  }
+  .imageProyectos {
+    display: inline-flex;
+  }
 }
 
-.displayProyectos {
-  padding: 50px;
+@media (min-width: 1200px) {
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 1vw;
+    text-decoration: none;
+    font-size: 1vw;
+  }
+
+  .mensaje {
+    text-align: center;
+    padding: 1.5vw;
+    font-size: 2.2vw;
+    color: #a8a7a7;
+  }
+
+  .negrillaMensaje {
+    font-weight: 700;
+    font-size: 3vw;
+    color: #888787;
+    line-height: 2vw;
+  }
+  h3 {
+    font-size: 1vw;
+    color: #333;
+  }
+
+  h4 {
+    font-size: 1.2vw;
+    color: #333;
+    padding: 2vw 2vw 2vw 0;
+  }
+
+  h2 {
+    padding-top: 3vw;
+    font-size: 4vw;
+    color: #c6c6c6;
+    font-weight: 700;
+    line-height: 1vw;
+  }
+  .yellowBar {
+    background-color: rgba(237, 205, 31, 1);
+    height: 0.6vw;
+    width: 30vw;
+    display: inline-block;
+  }
+  .banner {
+    background-color: rgba(237, 205, 31, 1);
+    padding: 1vw 0;
+  }
+
+  .imagenHome {
+    width: 85vw;
+    display: block;
+    margin: auto;
+  }
+
+  .standFull {
+    position: absolute;
+    top: 15vw;
+    right: 7vw;
+  }
+
+  .textFirst {
+    position: absolute;
+    top: 1vw;
+    left: 4vw;
+    color: white;
+    text-align: left;
+    font-size: 3vw;
+    font-weight: 100;
+    line-height: 3vw;
+  }
+
+  .textSecond {
+    position: absolute;
+    top: 6vw;
+    left: -4vw;
+    color: #888787;
+    text-align: left;
+    font-size: 3vw;
+    font-weight: 700;
+    line-height: 3vw;
+  }
+  .imageTeam {
+    border-radius: 150vw;
+    width: 15vw;
+    filter: grayscale(100%);
+    margin: 2vw;
+  }
+  .nameTeam {
+    color: rgba(237, 205, 31, 1);
+    font-size: 2vw;
+    font-weight: 700;
+    line-height: 2vw;
+    padding: 1vw;
+  }
+
+  .rollTeam {
+    font-size: 1.5vw;
+    color: #c6c6c6;
+    font-weight: 700;
+  }
+
+  .descriptionTeam {
+    margin: 1vw 5vw;
+    text-align: center;
+    font-size: 1vw;
+  }
+  .stand1 {
+    height: 35vw;
+    margin: 2vw;
+  }
+
+  .stand2 {
+    height: 35vw;
+    margin: 2vw;
+  }
+
+  .displayProyectos {
+    padding: 1vw;
+  }
+  .imageProyectos {
+    display: inline-flex;
+  }
 }

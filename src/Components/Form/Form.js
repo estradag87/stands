@@ -137,8 +137,8 @@ class Form extends React.Component {
             <h3 className="startInfo">COMIENZA DANDONOS TUS DATOS</h3>
             <form onSubmit={this.goToNewCompany} noValidate>
               <Row className="justify-content-lg-center">
-                <Col lg={3} md={5} sm={12} xs={12}>
-                  <div className="nombreDeLaEmpresa">
+                <Col lg={4} md={6} sm={12} xs={12}>
+                  <div className={("nombreDeLaEmpresa", "inputSpace")}>
                     <label htmlFor="nombreDeLaEmpresa"></label>
                     <br></br>
                     <input
@@ -162,8 +162,8 @@ class Form extends React.Component {
                     <br></br>
                   </div>
                 </Col>
-                <Col lg={3} md={5} sm={12} xs={12}>
-                  <div className="nombreDeContacto">
+                <Col lg={4} md={6} sm={12} xs={12}>
+                  <div className={("nombreDeContacto", "inputSpace")}>
                     <label htmlFor="nombreDeContacto"></label>
                     <br></br>
                     <input
@@ -188,8 +188,8 @@ class Form extends React.Component {
                 </Col>
               </Row>
               <Row className="justify-content-lg-center">
-                <Col lg={3} md={5} sm={12} xs={12}>
-                  <div className="email">
+                <Col lg={4} md={6} sm={12} xs={12}>
+                  <div className={("email", "inputSpace")}>
                     <label htmlFor="email"></label>
                     <br></br>
                     <input
@@ -208,8 +208,8 @@ class Form extends React.Component {
                     <br></br>
                   </div>
                 </Col>
-                <Col lg={3} md={5} sm={12} xs={12}>
-                  <div className="pais">
+                <Col lg={4} md={6} sm={12} xs={12}>
+                  <div className={("pais", "inputSpace")}>
                     <label htmlFor="pais"></label>
                     <br></br>
                     <input

@@ -7,20 +7,20 @@ class Nosotros extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { displayImage: false };
+    this.state = { displayTeamElements: false };
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("scroll", this.handleScrollNosotros);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("scroll", this.handleScrollNosotros);
   }
 
-  handleScroll = () => {
+  handleScrollNosotros = () => {
     this.setState({
-      displayImage: true,
+      displayTeamElements: true,
     });
   };
 
@@ -34,15 +34,15 @@ class Nosotros extends React.Component {
         </div>
         <div
           className={`teamElements ${
-            this.state.displayImage === true
-              ? "animate__animated animate__bounceInDown"
+            this.state.displayTeamElements === true
+              ? "animate__animated animate__backInLeft"
               : ""
           }`}
         >
           <ul className="displayTeam">
             <Row className="justify-content-lg-center">
               {TEAM.map((item) => (
-                <Col lg={4} md={3} sm={12} xs={12}>
+                <Col lg={4} md={4} sm={12} xs={12}>
                   <li className="teamFormer" key={item.id}>
                     <img className="imageTeam" src={item.image} />
                     <div className="nameTeam">{item.name}</div>

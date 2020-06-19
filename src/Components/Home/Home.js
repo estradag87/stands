@@ -30,7 +30,7 @@ class home extends React.Component {
         <div className="banner">
           <div className="standAlone">
             <img
-              className="imageStandAlone"
+              className="imagenHome"
               src="/stand-con-vendedoras.png"
               alt="Stand Alone"
             />
@@ -45,11 +45,7 @@ class home extends React.Component {
                 : ""
             }`}
           >
-            <img
-              className="imageStandFull"
-              src="/clientes.png"
-              alt="Stand Full"
-            />
+            <img className="imagenHome" src="/clientes.png" alt="Stand Full" />
             <h2 className="textSecond">
               Y TE LLOVERAN <br></br>LOS CLIENTES!!!
             </h2>

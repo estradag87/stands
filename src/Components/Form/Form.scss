@@ -1,64 +1,293 @@
-.section2 {
-  .startInfo {
-    font-size: 40px;
-    font-weight: 600;
-    color: #333;
-    padding-top: 30px;
-  }
+@media (max-width: 767px) {
+  .section2 {
+    .startInfo {
+      font-size: 4vw;
+      font-weight: 600;
+      color: #333;
+      padding-top: 3vw;
+      padding-bottom: 7vw;
+      height: 1vw;
+    }
 
-  h3 {
-    font-size: 35px;
-    color: #333;
-  }
+    h3 {
+      font-size: 6vw;
+      color: #333;
+    }
 
-  .BuiltYourOwnStand {
-    padding-top: 45px;
-    line-height: 10px;
-    font-size: 20px;
-    color: #333;
-  }
+    .BuiltYourOwnStand {
+      padding-top: 45px;
+      line-height: 10px;
+      font-size: 20px;
+      color: #333;
+    }
 
-  input {
-    padding: 12px;
-    border-radius: 25px;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
-    background-color: rgb(255, 255, 255);
-    font-size: 20px;
-    border-bottom: solid rgba(237, 205, 31, 1);
-    border-top: transparent;
-    border-left: transparent;
-    border-right: transparent;
-  }
+    input {
+      padding: 2vw 10vw;
+      border-radius: 25px;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+      background-color: rgb(255, 255, 255);
+      font-size: 2vw;
+      border-bottom: solid rgba(237, 205, 31, 1);
+      border-top: transparent;
+      border-left: transparent;
+      border-right: transparent;
+    }
 
-  .erros {
-    color: red;
-    font-size: 15px;
-  }
+    .erros {
+      color: red;
+      font-size: 3vw;
+    }
 
-  .submitButton {
-    padding: 12px 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
-    background-color: rgba(237, 205, 31, 1);
-    font-size: 20px;
-    font-weight: 700;
-    margin: 5px;
-    border: transparent;
-    color: black;
-  }
+    .submitButton {
+      padding: 1vw 4vw;
+      border-radius: 1vw;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+      background-color: rgba(237, 205, 31, 1);
+      font-size: 2.5vw;
+      font-weight: 700;
+      margin: 1vw;
+      border: transparent;
+      color: black;
+      margin-top: 5vw;
+      margin-bottom: 2vw;
+    }
 
-  .buttonTopForm {
-    width: 250px;
-    height: 50px;
-    border-radius: 10px;
-    border-bottom-left-radius: 0em;
-    border-bottom-right-radius: 0;
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
-    background-color: rgb(122, 122, 122);
-    font-size: 20px;
-    font-weight: 700;
-    margin: 5px;
-    border: transparent;
-    color: white;
+    .buttonTopForm {
+      width: 34vw;
+      height: 7vw;
+      border-radius: 1vw;
+      border-bottom-left-radius: 0em;
+      border-bottom-right-radius: 0;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+      background-color: rgb(122, 122, 122);
+      font-size: 2.5vw;
+      font-weight: 700;
+      margin: 1vw;
+      border: transparent;
+      color: white;
+    }
+    .inputSpace {
+      height: 12vw;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .section2 {
+    .startInfo {
+      font-size: 3.2vw;
+      font-weight: 600;
+      color: #333;
+      padding-top: 2vw;
+      padding-bottom: 3vw;
+      height: 1vw;
+    }
+
+    h3 {
+      font-size: 6vw;
+      color: #333;
+    }
+
+    .BuiltYourOwnStand {
+      padding-top: 45px;
+      line-height: 10px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    input {
+      padding: 1.5vw 4vw;
+      border-radius: 25px;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+      background-color: rgb(255, 255, 255);
+      font-size: 1.8vw;
+      border-bottom: solid rgba(237, 205, 31, 1);
+      border-top: transparent;
+      border-left: transparent;
+      border-right: transparent;
+    }
+
+    .erros {
+      color: red;
+      font-size: 3vw;
+    }
+
+    .submitButton {
+      padding: 1vw 4vw;
+      border-radius: 1vw;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+      background-color: rgba(237, 205, 31, 1);
+      font-size: 2vw;
+      font-weight: 700;
+      margin: 1vw;
+      border: transparent;
+      color: black;
+      margin-top: 3vw;
+      margin-bottom: 2vw;
+    }
+
+    .buttonTopForm {
+      width: 28vw;
+      height: 6vw;
+      border-radius: 1vw;
+      border-bottom-left-radius: 0em;
+      border-bottom-right-radius: 0;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+      background-color: rgb(122, 122, 122);
+      font-size: 2vw;
+      font-weight: 700;
+      margin: 1vw;
+      border: transparent;
+      color: white;
+    }
+    .inputSpace {
+      height: 10vw;
+    }
+  }
+}
+@media (min-width: 992px) {
+  .section2 {
+    .startInfo {
+      font-size: 3vw;
+      font-weight: 600;
+      color: #333;
+      padding-top: 2vw;
+      padding-bottom: 3vw;
+      height: 1vw;
+    }
+
+    h3 {
+      font-size: 6vw;
+      color: #333;
+    }
+
+    .BuiltYourOwnStand {
+      padding-top: 45px;
+      line-height: 10px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    input {
+      padding: 1.5vw 4vw;
+      border-radius: 25px;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+      background-color: rgb(255, 255, 255);
+      font-size: 1.3vw;
+      border-bottom: solid rgba(237, 205, 31, 1);
+      border-top: transparent;
+      border-left: transparent;
+      border-right: transparent;
+    }
+
+    .erros {
+      color: red;
+      font-size: 3vw;
+    }
+
+    .submitButton {
+      padding: 1vw 4vw;
+      border-radius: 1vw;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+      background-color: rgba(237, 205, 31, 1);
+      font-size: 1.5vw;
+      font-weight: 700;
+      margin: 1vw;
+      border: transparent;
+      color: black;
+      margin-top: 1.5vw;
+      margin-bottom: 2vw;
+    }
+
+    .buttonTopForm {
+      width: 25vw;
+      height: 4vw;
+      border-radius: 1vw;
+      border-bottom-left-radius: 0em;
+      border-bottom-right-radius: 0;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+      background-color: rgb(122, 122, 122);
+      font-size: 1.8vw;
+      font-weight: 700;
+      margin: 1vw;
+      border: transparent;
+      color: white;
+    }
+    .inputSpace {
+      height: 10vw;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .section2 {
+    .startInfo {
+      font-size: 2vw;
+      font-weight: 600;
+      color: #333;
+      padding-top: 1vw;
+      padding-bottom: 3vw;
+      height: 1vw;
+    }
+
+    h3 {
+      font-size: 6vw;
+      color: #333;
+    }
+
+    .BuiltYourOwnStand {
+      padding-top: 45px;
+      line-height: 10px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    input {
+      padding: 0.6vw 3vw;
+      border-radius: 25px;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+      background-color: rgb(255, 255, 255);
+      font-size: 1vw;
+      border-bottom: solid rgba(237, 205, 31, 1);
+      border-top: transparent;
+      border-left: transparent;
+      border-right: transparent;
+    }
+
+    .erros {
+      color: red;
+      font-size: 3vw;
+    }
+
+    .submitButton {
+      padding: 0.8vw 3vw;
+      border-radius: 1vw;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+      background-color: rgba(237, 205, 31, 1);
+      font-size: 1vw;
+      font-weight: 700;
+      margin: 1vw;
+      border: transparent;
+      color: black;
+      margin-top: 1.5vw;
+      margin-bottom: 2vw;
+    }
+
+    .buttonTopForm {
+      width: 18vw;
+      height: 2.5vw;
+      border-radius: 1vw;
+      border-bottom-left-radius: 0em;
+      border-bottom-right-radius: 0;
+      box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+      background-color: rgb(122, 122, 122);
+      font-size: 1.2vw;
+      font-weight: 700;
+      margin: 1vw;
+      border: transparent;
+      color: white;
+    }
+    .inputSpace {
+      height: 6vw;
+    }
   }
 }

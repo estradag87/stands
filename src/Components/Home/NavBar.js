@@ -13,13 +13,6 @@ class NavBar extends React.Component {
           <a className="active" href="#home">
             Home
           </a>
-          <img
-            className="logoBanner"
-            src="https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-5/tsunami-coffee/images/beans.png"
-            alt="logo face"
-            height="42"
-            width="42"
-          />
         </div>
         <div>
           <h1 className="mensaje">
