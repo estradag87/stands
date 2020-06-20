@@ -22,6 +22,7 @@ const Furniture = ({
 }) => {
   const history = useHistory();
   toast.configure();
+
   const goToChart = () => {
     if (areaId === "") {
       toast.warning("Selecciona un area para tu stand", {
