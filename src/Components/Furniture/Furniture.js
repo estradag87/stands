@@ -67,47 +67,46 @@ const Furniture = ({
   return (
     <div clasName="section4">
       <div className="showFurnitureList">
-        <ul>
-          <Row className="justify-content-lg-center">
-            {Object.keys(dbFurnitures)
-              .filter((furniture) => {
-                return (
-                  selectedCategories &&
-                  selectedCategories.includes(dbFurnitures[furniture].category)
-                );
-              })
-              .map((item) => (
-                <Col lg={3} md={3} sm={12} xs={12}>
-                  <li className="showFurniture" key={dbFurnitures[item].id}>
-                    <div className="showImage">
-                      <img className="image" src={dbFurnitures[item].image} />
-                    </div>
-                    <div className="name">{dbFurnitures[item].name}</div>
-                    <div className="price">${dbFurnitures[item].price} USD</div>
-                    <div className="addQuantitySection">
-                      <button
-                        className="buttonQuantityRest"
-                        onClick={() =>
-                          restProductQuantity(dbFurnitures[item].id)
-                        }
-                      >
-                        -
-                      </button>
-                      <div className="quantity">{furnituresResume[item]}</div>
-                      <button
-                        className="buttonQuantityAdd"
-                        onClick={() =>
-                          addProductQuantity(dbFurnitures[item].id)
-                        }
-                      >
-                        +
-                      </button>
-                    </div>
-                  </li>
-                </Col>
-              ))}
-          </Row>
-        </ul>
+        <Row className="justify-content-lg-center">
+          {Object.keys(dbFurnitures)
+            .filter((furniture) => {
+              return (
+                selectedCategories &&
+                selectedCategories.includes(dbFurnitures[furniture].category)
+              );
+            })
+            .map((item) => (
+              <Col lg={4} md={4} sm={12} xs={12}>
+                <li className="showFurniture" key={dbFurnitures[item].id}>
+                  <div className="showImage">
+                    <img
+                      className="imageFurniture"
+                      src={dbFurnitures[item].image}
+                    />
+                  </div>
+                  <div className="nameFurniture">{dbFurnitures[item].name}</div>
+                  <div className="priceFurniture">
+                    ${dbFurnitures[item].price} USD
+                  </div>
+                  <div className="addQuantitySection">
+                    <button
+                      className="buttonQuantityRest"
+                      onClick={() => restProductQuantity(dbFurnitures[item].id)}
+                    >
+                      -
+                    </button>
+                    <div className="quantity">{furnituresResume[item]}</div>
+                    <button
+                      className="buttonQuantityAdd"
+                      onClick={() => addProductQuantity(dbFurnitures[item].id)}
+                    >
+                      +
+                    </button>
+                  </div>
+                </li>
+              </Col>
+            ))}
+        </Row>
       </div>
       <button
         onClick={() => {

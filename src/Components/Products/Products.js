@@ -14,50 +14,44 @@ const Products = ({
 }) => (
   <div className="section3">
     <div className="walls">
-      <h3 className="standTipe">CUENTANOS CÓMO ES TU STAND</h3>
-      <ul>
-        <Row className="justify-content-lg-center">
-          {WALL_LISTS.map((item) => (
-            <Col lg={6} md={3} sm={12} xs={12}>
-              <li
-                onClick={() => changeWalls(item.id)}
-                className={`desing ${
-                  item.id === wallId ? "space" : wallId ? "noSpace" : ""
-                }`}
-                key={item.id}
-              >
-                <img className="imageArea" src={item.image} />
-                <div className="name">{item.name}</div>
-              </li>
-            </Col>
-          ))}
-        </Row>
-      </ul>
+      <h3 className="standType">CUENTANOS CÓMO ES TU STAND</h3>
+
+      <Row className="justify-content-lg-center">
+        {WALL_LISTS.map((item) => (
+          <Col lg={6} md={6} sm={12} xs={12}>
+            <li
+              onClick={() => changeWalls(item.id)}
+              className={`desing ${
+                item.id === wallId ? "space" : wallId ? "noSpace" : ""
+              }`}
+              key={item.id}
+            >
+              <img className="imageSpace" src={item.image} />
+              <div className="nameSpace">{item.name}</div>
+            </li>
+          </Col>
+        ))}
+      </Row>
     </div>
     <div className="Floor">
-      <h3 className="standTipe">ESCOGE EL PISO</h3>
-      <ul>
-        <Row className="justify-content-lg-center">
-          {FLOOR_OPTIONS.map((item) => (
-            <Col lg={4} md={3} sm={12} xs={12}>
-              <li
-                onClick={() => changeFloor(item.id)}
-                className={`desing ${
-                  item.id === floorId
-                    ? "floorTipe"
-                    : floorId
-                    ? "noFloorTipe"
-                    : ""
-                }`}
-                key={item.id}
-              >
-                <img className="imageFloor" src={item.image} />
-                <div className="name">{item.name}</div>
-              </li>
-            </Col>
-          ))}
-        </Row>
-      </ul>
+      <h3 className="standType">ESCOGE EL PISO</h3>
+
+      <Row className="justify-content-lg-center">
+        {FLOOR_OPTIONS.map((item) => (
+          <Col lg={6} md={6} sm={6} xs={6}>
+            <li
+              onClick={() => changeFloor(item.id)}
+              className={`desing ${
+                item.id === floorId ? "floorType" : floorId ? "noFloorType" : ""
+              }`}
+              key={item.id}
+            >
+              <img className="imageFloor" src={item.image} />
+              <div className="nameFloor">{item.name}</div>
+            </li>
+          </Col>
+        ))}
+      </Row>
     </div>
   </div>
 );

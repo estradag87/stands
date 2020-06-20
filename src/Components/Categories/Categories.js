@@ -22,22 +22,21 @@ const Categories = ({
       </h3>
       <div className="whiteBar"></div>
       <h4 className="choose">Escoge que poductos deseas agregar</h4>
-      <ul>
-        <Row className="justify-content-lg-center">
-          {CATEGORY_LIST.map((item) => (
-            <Col lg={3} md={3} sm={12} xs={12}>
-              <li
-                onClick={() => changeCategory(item.name)}
-                className="showCategories"
-                key={item.id}
-              >
-                <img className="image" src={item.image} />
-                <div className="name">{item.name}</div>
-              </li>
-            </Col>
-          ))}
-        </Row>
-      </ul>
+
+      <Row className="justify-content-lg-center">
+        {CATEGORY_LIST.map((item) => (
+          <Col lg={3} md={3} sm={6} xs={6}>
+            <li
+              onClick={() => changeCategory(item.name)}
+              className="showCategories"
+              key={item.id}
+            >
+              <img className="imageCategory" src={item.image} />
+              <div className="nameCategory">{item.name}</div>
+            </li>
+          </Col>
+        ))}
+      </Row>
     </div>
     <Furniture
       addToFurnituresResume={addToFurnituresResume}
