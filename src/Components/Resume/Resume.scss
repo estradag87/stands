@@ -1,97 +1,481 @@
-.tableStyle {
-  margin: 50px 300px;
-  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.8);
-  border-radius: 10px;
-  padding-bottom: 15px;
-  padding-top: 15px;
+@media (max-width: 767px) {
+  .resumeTitle {
+    font-size: 6vw;
+    font-weight: 600;
+    padding: 3vw 0;
+  }
+
+  .tableStyle {
+    margin: 1vw 8vw;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.8);
+    border-radius: 2vw;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+  }
+
+  .tableinfo {
+    margin: 1vw 1vw;
+  }
+
+  .tableTittles {
+    font-weight: 800;
+    font-size: 2vw;
+    color: white;
+    background-color: #696969;
+  }
+
+  .tableTittlesTotal {
+    font-weight: 800;
+    font-size: 2.5vw;
+    color: #494949;
+    background-color: rgba(237, 205, 31, 1);
+    text-align: end;
+  }
+
+  .specifications {
+    font-weight: 700;
+    font-size: 2.5vw;
+    color: #707070;
+  }
+
+  .tableDetails {
+    font-size: 2vw;
+    color: #302f2f;
+  }
+
+  .addQuantitySection {
+    display: inline-flex;
+    font-weight: 700;
+    margin: 1vw;
+    padding-bottom: 4vw;
+  }
+
+  .buttonQuantityAdd {
+    border-top-right-radius: 3vw;
+    border-bottom-right-radius: 3vw;
+    font-size: 2.5vw;
+    background-color: rgba(237, 205, 31, 1);
+    color: black;
+    font-weight: 1000;
+    box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 0.4);
+    border: transparent;
+    width: 2.5vw;
+    // padding: 1vw;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .buttonQuantityRest {
+    border-top-left-radius: 3vw;
+    border-bottom-left-radius: 3vw;
+    font-size: 2.5vw;
+    background-color: rgba(237, 205, 31, 1);
+    color: black;
+    font-weight: 1000;
+    box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 0.4);
+    border: transparent;
+    width: 2.5vw;
+    // padding: 1vw;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .quantityResume {
+    text-align: center;
+    background-color: #dddddd;
+    width: 3vw;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.4);
+    font-size: 2vw;
+    height: auto !important;
+  }
+
+  .priceResume {
+    float: right;
+
+    font-weight: 700;
+    font-size: 3vw;
+  }
+
+  .priceResumeFurniture {
+    margin-right: 1vw !important;
+    font-weight: 700;
+    vertical-align: middle !important;
+    font-size: 2vw;
+  }
+
+  .furnitureDetail {
+    vertical-align: middle !important;
+    font-size: 2.5vw;
+    color: #302f2f;
+  }
+
+  .imageResume {
+    width: 8vw;
+    background-color: white;
+    max-width: 200px;
+    max-height: 150px;
+    padding-bottom: 2vw;
+  }
 }
 
-.tableinfo {
-  margin: 40px 40px;
+@media (min-width: 768px) {
+  .resumeTitle {
+    font-size: 6vw;
+    font-weight: 600;
+    padding: 3vw 0;
+  }
+
+  .tableStyle {
+    margin: 1vw 8vw;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.8);
+    border-radius: 2vw;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+  }
+
+  .tableinfo {
+    margin: 1vw 1vw;
+  }
+
+  .tableTittles {
+    font-weight: 800;
+    font-size: 2vw;
+    color: white;
+    background-color: #696969;
+  }
+
+  .tableTittlesTotal {
+    font-weight: 800;
+    font-size: 2.5vw;
+    color: #494949;
+    background-color: rgba(237, 205, 31, 1);
+    text-align: end;
+  }
+
+  .specifications {
+    font-weight: 700;
+    font-size: 2.5vw;
+    color: #707070;
+  }
+
+  .tableDetails {
+    font-size: 2vw;
+    color: #302f2f;
+  }
+
+  .addQuantitySection {
+    display: inline-flex;
+    font-weight: 700;
+    margin: 1vw;
+    padding-bottom: 4vw;
+  }
+
+  .buttonQuantityAdd {
+    border-top-right-radius: 3vw;
+    border-bottom-right-radius: 3vw;
+    font-size: 2.5vw;
+    background-color: rgba(237, 205, 31, 1);
+    color: white;
+    font-weight: 1000;
+    box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 0.4);
+    border: transparent;
+    width: 2.5vw;
+    // padding: 1vw;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .buttonQuantityRest {
+    border-top-left-radius: 3vw;
+    border-bottom-left-radius: 3vw;
+    font-size: 2.5vw;
+    background-color: rgba(237, 205, 31, 1);
+    color: white;
+    font-weight: 1000;
+    box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 0.4);
+    border: transparent;
+    width: 2.5vw;
+    // padding: 1vw;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .quantityResume {
+    text-align: center;
+    background-color: #dddddd;
+    width: 3vw;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.4);
+    font-size: 2vw;
+    height: auto !important;
+  }
+
+  .priceResume {
+    color: rgba(237, 205, 31, 1);
+    float: right;
+    margin-right: 2vw;
+    font-weight: 700;
+    font-size: 3vw;
+  }
+
+  .priceResumeFurniture {
+    margin-right: 1vw !important;
+    font-weight: 700;
+    vertical-align: middle !important;
+    font-size: 2vw;
+  }
+
+  .furnitureDetail {
+    vertical-align: middle !important;
+    font-size: 2.5vw;
+    color: #302f2f;
+  }
+
+  .imageResume {
+    width: 8vw;
+    background-color: white;
+    max-width: 200px;
+    max-height: 150px;
+    padding-bottom: 2vw;
+  }
 }
 
-.tableTittles {
-  font-weight: 800;
-  font-size: 20px;
-  color: white;
-  background-color: #696969;
-}
+@media (min-width: 992px) {
+  .resumeTitle {
+    font-size: 6vw;
+    font-weight: 600;
+    padding: 3vw 0;
+  }
 
-.tableTittlesTotal {
-  font-weight: 800;
-  font-size: 25px;
-  color: #494949;
-  background-color: rgba(237, 205, 31, 1);
-}
+  .tableStyle {
+    margin: 1vw 8vw;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.8);
+    border-radius: 2vw;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+  }
 
-.specifications {
-  font-weight: 700;
-  font-size: 25px;
-  color: #707070;
-}
+  .tableinfo {
+    margin: 1vw 1vw;
+  }
 
-.tableDetails {
-  font-size: 18px;
-  color: #302f2f;
-}
+  .tableTittles {
+    font-weight: 800;
+    font-size: 1.8vw;
+    color: white;
+    background-color: #696969;
+  }
 
-.addQuantitySection {
-  display: inline-flex;
-  font-weight: 700;
-  margin: 10px;
-}
+  .tableTittlesTotal {
+    font-weight: 800;
+    font-size: 2vw;
+    color: #494949;
+    background-color: rgba(237, 205, 31, 1);
+    text-align: end;
+  }
 
-.buttonQuantityAdd {
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-  font-size: 30px;
-  background-color: rgba(237, 205, 31, 1);
-  color: white;
-  font-weight: 1000;
-  box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 0.4);
-  border: transparent;
-  width: 30px;
-  text-align: center;
-  z-index: 10;
-}
+  .specifications {
+    font-weight: 700;
+    font-size: 2vw;
+    color: #707070;
+  }
 
-.buttonQuantityRest {
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-  font-size: 30px;
-  background-color: rgba(237, 205, 31, 1);
-  color: white;
-  font-weight: 1000;
-  box-shadow: -2px 3px 8px 1px rgba(0, 0, 0, 0.4);
-  border: transparent;
-  width: 30px;
-  z-index: 10;
-}
+  .tableDetails {
+    font-size: 1.5vw;
+    color: #302f2f;
+  }
 
-.quantity {
-  text-align: center;
-  background-color: #dddddd;
-  width: 50px;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.4);
-  vertical-align: middle !important;
-}
+  .addQuantitySection {
+    display: inline-flex;
+    font-weight: 700;
+    margin: 1vw;
+    padding-bottom: 1vw;
+  }
 
-.priceResume {
-  color: rgba(237, 205, 31, 1);
-  float: right;
-  margin-right: 20px;
-  font-weight: 700;
-}
+  .buttonQuantityAdd {
+    border-top-right-radius: 3vw;
+    border-bottom-right-radius: 3vw;
+    font-size: 2vw;
+    background-color: rgba(237, 205, 31, 1);
+    color: white;
+    font-weight: 1000;
+    box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 0.4);
+    border: transparent;
+    width: 2vw;
+    // padding: 1vw;
+    text-align: center;
+    z-index: 10;
+  }
 
-.priceResumeFurniture {
-  color: rgba(237, 205, 31, 1);
-  margin-right: 30px !important;
-  font-weight: 700;
-  vertical-align: middle !important;
-}
+  .buttonQuantityRest {
+    border-top-left-radius: 3vw;
+    border-bottom-left-radius: 3vw;
+    font-size: 2.5vw;
+    background-color: rgba(237, 205, 31, 1);
+    color: white;
+    font-weight: 1000;
+    box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 0.4);
+    border: transparent;
+    width: 2vw;
+    // padding: 1vw;
+    text-align: center;
+    z-index: 10;
+  }
 
-.furnitureDetail {
-  vertical-align: middle !important;
-  font-size: 18px;
-  color: #302f2f;
+  .quantityResume {
+    text-align: center;
+    background-color: #dddddd;
+    width: 4vw;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.4);
+    font-size: 1.8vw;
+    height: auto !important;
+  }
+
+  .priceResume {
+    color: rgba(237, 205, 31, 1);
+    float: right;
+    margin-right: 2vw;
+    font-weight: 700;
+    font-size: 2.5vw;
+  }
+
+  .priceResumeFurniture {
+    margin-right: 1vw !important;
+    font-weight: 700;
+    vertical-align: middle !important;
+    font-size: 2vw;
+  }
+
+  .furnitureDetail {
+    vertical-align: middle !important;
+    font-size: 1.5vw;
+    color: #302f2f;
+  }
+
+  .imageResume {
+    width: 8vw;
+    background-color: white;
+    max-width: 200px;
+    max-height: 150px;
+    padding-bottom: 2vw;
+  }
+}
+@media (min-width: 1200px) {
+  .resumeTitle {
+    font-size: 4vw;
+    font-weight: 600;
+    padding: 2vw 0;
+  }
+
+  .tableStyle {
+    margin: 1vw 8vw;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.8);
+    border-radius: 2vw;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+  }
+
+  .tableinfo {
+    margin: 1vw 1vw;
+  }
+
+  .tableTittles {
+    font-weight: 800;
+    font-size: 1.2vw;
+    color: white;
+    background-color: #696969;
+  }
+
+  .tableTittlesTotal {
+    font-weight: 800;
+    font-size: 1.5vw;
+    color: #494949;
+    background-color: rgba(237, 205, 31, 1);
+    text-align: end;
+  }
+
+  .specifications {
+    font-weight: 700;
+    font-size: 1.5vw;
+    color: #707070;
+  }
+
+  .tableDetails {
+    font-size: 1.2vw;
+    color: #302f2f;
+  }
+
+  .addQuantitySection {
+    display: inline-flex;
+    font-weight: 700;
+    margin: 1vw;
+    padding-bottom: 1vw;
+  }
+
+  .buttonQuantityAdd {
+    border-top-right-radius: 3vw;
+    border-bottom-right-radius: 3vw;
+    font-size: 1.5vw;
+    background-color: rgba(237, 205, 31, 1);
+    color: white;
+    font-weight: 1000;
+    box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 0.4);
+    border: transparent;
+    width: 2vw;
+    // padding: 1vw;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .buttonQuantityRest {
+    border-top-left-radius: 3vw;
+    border-bottom-left-radius: 3vw;
+    font-size: 1.5vw;
+    background-color: rgba(237, 205, 31, 1);
+    color: white;
+    font-weight: 1000;
+    box-shadow: 2px 3px 8px 1px rgba(0, 0, 0, 0.4);
+    border: transparent;
+    width: 2vw;
+    // padding: 1vw;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .quantityResume {
+    text-align: center;
+    background-color: #dddddd;
+    width: 4vw;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.4);
+    font-size: 1.5vw;
+    height: auto !important;
+  }
+
+  .priceResume {
+    color: rgba(237, 205, 31, 1);
+    float: right;
+    margin-right: 2vw;
+    font-weight: 700;
+    font-size: 2vw;
+  }
+
+  .priceResumeFurniture {
+    margin-right: 1vw !important;
+    font-weight: 700;
+    vertical-align: middle !important;
+    font-size: 1.5vw;
+  }
+
+  .furnitureDetail {
+    vertical-align: middle !important;
+    font-size: 1.2vw;
+    color: #302f2f;
+  }
+
+  .imageResume {
+    width: 8vw;
+    background-color: white;
+    max-width: 200px;
+    max-height: 150px;
+    padding-bottom: 2vw;
+  }
 }

@@ -7,7 +7,7 @@ class Proyectos extends React.Component {
     return (
       <div>
         <div className="displayProyectos">
-          <h2>PROYECTOS</h2>
+          <h2 id="proyectos">PROYECTOS</h2>
           <h4>¡Estos son algunos de nuestros proyectos!</h4>
           <div className="yellowBar"></div>
           <div className="imageProyectos">

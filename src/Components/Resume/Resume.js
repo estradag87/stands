@@ -31,7 +31,7 @@ const Resume = ({
 
   return (
     <div className="tableStyle">
-      <h2>RESUMEN DE TU STAND</h2>
+      <h2 className="resumeTitle">RESUMEN DE TU STAND</h2>
 
       <div className="tableinfo">
         <Table responsive="sm">
@@ -83,7 +83,7 @@ const Resume = ({
                   {AREA_LIST.filter((area) => areaId === area.id).map(
                     (item) => (
                       <li className="priceResume" key={item.id}>
-                        <div className="price">{item.Price}</div>
+                        <div className="priceResume">{item.Price}</div>
                       </li>
                     )
                   )}
@@ -111,7 +111,10 @@ const Resume = ({
                     {" "}
                     <p className="showFurniture" key={dbFurnitures[item].id}>
                       <div className="showImage">
-                        <img className="image" src={dbFurnitures[item].image} />
+                        <img
+                          className="imageResume"
+                          src={dbFurnitures[item].image}
+                        />
                       </div>
                     </p>
                   </td>
@@ -128,7 +131,9 @@ const Resume = ({
                       >
                         -
                       </button>
-                      <div className="quantity">{furnituresResume[item]}</div>
+                      <div className="quantityResume">
+                        {furnituresResume[item]}
+                      </div>
                       <button
                         className="buttonQuantityAdd"
                         onClick={() =>
@@ -143,24 +148,22 @@ const Resume = ({
                     className="priceResumeFurniture"
                     key={dbFurnitures[item].id}
                   >
-                    ${dbFurnitures[item].price * (furnituresResume[item] || 0)}
+                    $ {dbFurnitures[item].price * (furnituresResume[item] || 0)}{" "}
                     USD
                   </td>
                 </tr>
               ))}
 
             <tr className="tableTittlesTotal">
-              <td colspan="3"></td>
-              <td>VALOR TOTAL</td>
-              <td>
-                <div className="total">
-                  {Object.keys(furnituresResume).reduce((prevTotal, item) => {
-                    return (
-                      prevTotal +
-                      dbFurnitures[item].price * furnituresResume[item]
-                    );
-                  }, sumArea)}
-                </div>
+              <td colspan="5">
+                VALOR TOTAL ${" "}
+                {Object.keys(furnituresResume).reduce((prevTotal, item) => {
+                  return (
+                    prevTotal +
+                    dbFurnitures[item].price * furnituresResume[item]
+                  );
+                }, sumArea)}{" "}
+                USD
               </td>
             </tr>
           </tbody>

@@ -87,7 +87,7 @@ class Form extends React.Component {
   render() {
     const { errors } = this.props;
     return (
-      <div className="section2">
+      <div className="section2" id="crea">
         <button className="buttonTopForm" onClick={this.showFormNewStand}>
           Crea tu nuevo stand
         </button>
@@ -102,7 +102,7 @@ class Form extends React.Component {
             <h3 className="startInfo">
               INGRESA EL CÓDIGO DE REFERENCIA DE TU STAND
             </h3>
-            <form onSubmit={this.goToCompany} noValidate>
+            <form onSubmit={this.goToCompany}>
               <div className="referenciaStand">
                 <label htmlFor="referenciaStand"></label>
                 <br></br>
@@ -135,7 +135,7 @@ class Form extends React.Component {
         {this.state.showNewStand && (
           <div>
             <h3 className="startInfo">COMIENZA DANDONOS TUS DATOS</h3>
-            <form onSubmit={this.goToNewCompany} noValidate>
+            <form onSubmit={this.goToNewCompany}>
               <Row className="justify-content-lg-center">
                 <Col lg={4} md={6} sm={12} xs={12}>
                   <div className={("nombreDeLaEmpresa", "inputSpace")}>

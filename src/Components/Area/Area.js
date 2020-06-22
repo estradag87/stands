@@ -18,7 +18,9 @@ const Area = ({ AREA_LIST, chooseAre, areaId }) => (
             }`}
             key={item.id}
           >
-            <img className="imageArea" src={item.image} />
+            <div className="imagediv">
+              <img className="imageArea" src={item.image} />
+            </div>
             <div className="sizeNumber">{item.size}</div>
             <div className="sizeText">metros</div>
             <div className="includes">Incluye:</div>

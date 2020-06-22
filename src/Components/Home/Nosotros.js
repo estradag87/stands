@@ -28,7 +28,7 @@ class Nosotros extends React.Component {
     return (
       <div>
         <div className="displayTeam">
-          <h2>NOSOTROS</h2>
+          <h2 id="nosotros">NOSOTROS</h2>
           <h4>¡Conoce nuestro equipo de trabajo!</h4>
           <div className="yellowBar"></div>
         </div>

@@ -6,13 +6,11 @@ class NavBar extends React.Component {
     return (
       <div>
         <div className="topnav">
-          <a href="#contacto">Contacto</a>
+          <a href="#nosotros">Contacto</a>
           <a href="#proyectos">Proyectos</a>
           <a href="#nosotros">Nosotros</a>
-          <a href="../Crea/Crea.js">Crea Tu Propio Stand</a>
-          <a className="active" href="#home">
-            Home
-          </a>
+          {/* <a href="#crea">Crea Tu Propio Stand</a> */}
+          <a href="#home">Home</a>
         </div>
         <div>
           <h1 className="mensaje">
