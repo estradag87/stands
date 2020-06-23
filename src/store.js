@@ -76,9 +76,9 @@ const reducerUserChart = (state = initialState, action) => {
     case REST_PRODUCT_QUANTITY:
       let substractQuantity = state.furnituresResume[action.productId];
       if (state.furnituresResume[action.productId] >= 1) {
-        substractQuantity = substractQuantity - 1 || null;
+        substractQuantity = substractQuantity - 1 || 0;
       } else {
-        substractQuantity = null;
+        substractQuantity = 0;
       }
       return {
         ...state,

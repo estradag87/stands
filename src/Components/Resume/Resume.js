@@ -98,12 +98,18 @@ const Resume = ({
               <td>COSTO TOTAL</td>
             </tr>
 
+            {console.log("----------------", furnituresResume)}
             {Object.keys(furnituresResume)
               .filter((xax) => {
+                console.log(
+                  "22",
+                  furnituresResume[xax],
+                  furnituresResume[xax] >= 1
+                );
                 return furnituresResume[xax] >= 1;
               })
-              .map((item) => (
-                <tr>
+              .map((item, i) => (
+                <tr key={i}>
                   <td className="furnitureDetail" key={dbFurnitures[item].id}>
                     {dbFurnitures[item].name}
                   </td>
