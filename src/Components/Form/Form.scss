@@ -21,16 +21,19 @@
       color: #333;
     }
 
-    input {
-      padding: 2vw 10vw;
+    .inputForm {
+      height: 7vw;
+      width: 37vw;
+      margin: 1vw 21vw;
       border-radius: 25px;
       box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
       background-color: rgb(255, 255, 255);
-      font-size: 2vw;
+      font-size: 2.5vw;
       border-bottom: solid rgba(237, 205, 31, 1);
       border-top: transparent;
       border-left: transparent;
       border-right: transparent;
+      text-align: center;
     }
 
     .erros {
@@ -49,7 +52,7 @@
       margin: 1vw;
       border: transparent;
       color: black;
-      margin-top: 8vw;
+      margin-top: 10vw;
       margin-bottom: 2vw;
       z-index: 10;
     }
@@ -96,16 +99,19 @@
       color: #333;
     }
 
-    input {
-      padding: 1.2vw 5vw;
+    .inputForm {
+      height: 4vw;
+      width: 28vw;
+      margin: 0 6vw;
       border-radius: 25px;
       box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
       background-color: rgb(255, 255, 255);
-      font-size: 1.8vw;
+      font-size: 1.2vw;
       border-bottom: solid rgba(237, 205, 31, 1);
       border-top: transparent;
       border-left: transparent;
       border-right: transparent;
+      text-align: center;
     }
 
     .erros {
@@ -169,17 +175,19 @@
       font-size: 20px;
       color: #333;
     }
-
-    input {
-      padding: 1.2vw 6vw;
+    .inputForm {
+      height: 4vw;
+      width: 28vw;
+      margin: 0 6vw;
       border-radius: 25px;
       box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
       background-color: rgb(255, 255, 255);
-      font-size: 1.3vw;
+      font-size: 1.2vw;
       border-bottom: solid rgba(237, 205, 31, 1);
       border-top: transparent;
       border-left: transparent;
       border-right: transparent;
+      text-align: center;
     }
 
     .erros {
@@ -245,16 +253,19 @@
       color: #333;
     }
 
-    input {
-      padding: 0.6vw 5vw;
+    .inputForm {
+      height: 3vw;
+      width: 21vw;
+      margin: 0 4vw;
       border-radius: 25px;
       box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
       background-color: rgb(255, 255, 255);
-      font-size: 1vw;
+      font-size: 0.8vw;
       border-bottom: solid rgba(237, 205, 31, 1);
       border-top: transparent;
       border-left: transparent;
       border-right: transparent;
+      text-align: center;
     }
 
     .erros {

@@ -26,6 +26,12 @@ class App extends React.Component {
     this.setState({ errors, [name]: value });
   };
 
+  // changeHandlerCountry(e) {
+  //   this.setState({
+  //     pais: e.target.current.value,
+  //   });
+  // }
+
   render() {
     return (
       <div>

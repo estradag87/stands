@@ -101,33 +101,21 @@ const Resume = ({
             {console.log("----------------", furnituresResume)}
             {Object.keys(furnituresResume)
               .filter((xax) => {
-                console.log(
-                  "22",
-                  furnituresResume[xax],
-                  furnituresResume[xax] >= 1
-                );
                 return furnituresResume[xax] >= 1;
               })
               .map((item, i) => (
                 <tr key={i}>
-                  <td className="furnitureDetail" key={dbFurnitures[item].id}>
-                    {dbFurnitures[item].name}
-                  </td>
+                  <td className="furnitureDetail">{dbFurnitures[item].name}</td>
                   <td>
-                    {" "}
-                    <p className="showFurniture" key={dbFurnitures[item].id}>
-                      <div className="showImage">
-                        <img
-                          className="imageResume"
-                          src={dbFurnitures[item].image}
-                        />
-                      </div>
-                    </p>
+                    <img
+                      className="imageResume"
+                      src={dbFurnitures[item].image}
+                    />
                   </td>
-                  <td className="furnitureDetail" key={dbFurnitures[item].id}>
+                  <td className="furnitureDetail">
                     ${dbFurnitures[item].price}USD
                   </td>
-                  <td className="furnitureDetail" key={dbFurnitures[item].id}>
+                  <td className="furnitureDetail">
                     <div className="addQuantitySection">
                       <button
                         className="buttonQuantityRest"

@@ -3,12 +3,27 @@ import "./Form.scss";
 import { Row, Col, Button } from "react-bootstrap";
 import { validEmailRegex, validateForm } from "../../utils";
 import { v4 as uuidv4 } from "uuid";
+import { firebaseApp } from "../../base";
+import { Typeahead } from "react-bootstrap-typeahead";
+import "react-bootstrap-typeahead/css/Typeahead.css";
 
 class Form extends React.Component {
-  state = {
-    showNewStand: true,
-    showModifyYourStand: false,
-  };
+  constructor() {
+    super();
+    this.state = {
+      showNewStand: true,
+      showModifyYourStand: false,
+      countries: [],
+      inputCountry: "",
+    };
+    this.changeHandlerCountry = this.changeHandlerCountry.bind(this);
+  }
+
+  componentDidMount() {
+    fetch("https://restcountries.eu/rest/v2/all")
+      .then((response) => response.json())
+      .then((countriesJson) => this.setState({ countries: countriesJson }));
+  }
 
   showFormNewStand = () => {
     this.setState({
@@ -73,6 +88,7 @@ class Form extends React.Component {
 
   goToCompany = (event) => {
     event.preventDefault();
+    this.validateCodeCompany();
     const companyCode = this.myInput.current.value;
 
     this.props.history.push(`/company/${companyCode}`);
@@ -84,8 +100,27 @@ class Form extends React.Component {
     }
   };
 
+  // validateCodeCompany = () => {
+  //   return firebaseApp
+  //     .database()
+  //     .ref("/stands-61e4c/0d01bc0d-de77-49a5-a0d1-b517c544b9c7")
+  //     .once("value")
+  //     .then(function (snapshot) {
+  //       console.log(snapshot);
+  //     });
+  // };
+
+  changeHandlerCountry(selected) {
+    console.log(selected);
+    if (selected.length) {
+      this.props.handleChange(this.props.errors, "pais", selected[0]);
+    }
+  }
+
   render() {
     const { errors } = this.props;
+    const countriesList = this.state.countries.map((d) => d.name);
+
     return (
       <div className="section2" id="crea">
         <button className="buttonTopForm" onClick={this.showFormNewStand}>
@@ -142,6 +177,7 @@ class Form extends React.Component {
                     <label htmlFor="nombreDeLaEmpresa"></label>
                     <br></br>
                     <input
+                      className="inputForm"
                       type="text"
                       ref={this.myInput}
                       name="nombreDeLaEmpresa"
@@ -167,6 +203,7 @@ class Form extends React.Component {
                     <label htmlFor="nombreDeContacto"></label>
                     <br></br>
                     <input
+                      className="inputForm"
                       type="text"
                       name="nombreDeContacto"
                       required
@@ -193,6 +230,7 @@ class Form extends React.Component {
                     <label htmlFor="email"></label>
                     <br></br>
                     <input
+                      className="inputForm"
                       type="email"
                       name="email"
                       required
@@ -210,21 +248,13 @@ class Form extends React.Component {
                 </Col>
                 <Col lg={6} md={6} sm={12} xs={12}>
                   <div className={("pais", "inputSpace")}>
-                    <label htmlFor="pais"></label>
                     <br></br>
-                    <input
-                      type="text"
-                      name="pais"
-                      required
+                    <Typeahead
+                      inputProps={{ className: "inputForm" }}
+                      onChange={this.changeHandlerCountry}
+                      options={countriesList}
                       placeholder="País"
-                      onChange={this.handleChange}
-                      noValidate
                     />
-                    <h4 className="erros">
-                      {errors && errors.pais && errors.pais.length > 0 && (
-                        <span className="error">{errors.pais}</span>
-                      )}
-                    </h4>
                     <br></br>
                   </div>
                 </Col>
